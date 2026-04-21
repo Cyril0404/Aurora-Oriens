@@ -1,6 +1,7 @@
-# Oriental Treasure · 开发项目手册
+# Aurora Oriens · 开发项目手册
 
-> 版本：v1.0 · 2026-04-21
+> 版本：v1.0 · 2026-04-21（品牌名更新：Aurora Oriens）
+> 原名：Oriental Treasure
 > 定位：电商独立站，面向北美/欧洲东方美学轻奢珠宝市场
 > 团队：神冢（创始人/拍板）× 丞相（COO/调度）× Claude Code（CTO/执行）
 
@@ -9,6 +10,7 @@
 ## 🎯 项目背景
 
 ### 产品定位
+- **品牌名**：Aurora Oriens（拉丁文"东方晨曦"）
 - **产品**：东方美学轻奢珠宝，手工匠人制作
 - **客单价**：$35–$350
 - **目标市场**：美国为主（TikTok Shop），欧洲（英德）为辅
@@ -24,14 +26,14 @@
 ## 📁 项目文件结构
 
 ```
-Oriental-Treasure/
+Aurora-Oriens/
 ├── README.md                        ← 项目总览（必读）
 ├── CLAUDE.md                        ← Claude开发规范（必读）
 ├── ROLES.md                         ← 三人分工手册
 ├── TASTE.md                         ← 审美校准档案
 ├── docs/
-│   ├── Oriental-Treasure-内容资产.md    ← 品牌内容（故事/SOP/社媒）
-│   ├── Oriental-Treasure-开发手册.md     ← 技术架构/函数文档
+│   ├── Aurora-Oriens-内容资产.md    ← 品牌内容（故事/SOP/社媒）
+│   ├── Aurora-Oriens-开发手册.md     ← 技术架构/函数文档
 │   └── superpowers/
 │       ├── specs/
 │       │   └── 2026-04-21-技术规范.md    ← 设计规范/色彩/字体/规范
@@ -105,7 +107,7 @@ Oriental-Treasure/
 | 2026-04-21 | 不用 Shopify，自研方案（支付方案待定） |
 | 2026-04-21 | 静态 HTML 原型先行，电商功能后续接入 |
 | 2026-04-21 | 三人分工：神冢决策 + 丞相调度 + Claude 执行 |
-| 2026-04-21 | 项目文件全部整理到 ~/Desktop/Oriental-Treasure/ |
+| 2026-04-21 | 项目文件全部整理到 ~/Desktop/Aurora-Oriens/ |
 
 ---
 

@@ -1,4 +1,4 @@
-# Oriental Treasure · 开发手册
+# Aurora Oriens · 开发手册
 
 > 记录日期：2026-04-21
 > 维护人：Claude Code
@@ -8,7 +8,7 @@
 
 ## 一、项目概述
 
-**Oriental Treasure** 是一个面向北美/欧洲市场的东方美学轻奢珠宝独立站。
+**Aurora Oriens** 是一个面向北美/欧洲市场的东方美学轻奢珠宝独立站。
 
 - **产品定位**：$35–$350 客单价，手工匠人制作，东方美学 + 现代廓形
 - **目标市场**：美国为主（TikTok Shop），欧洲（英国、德国）为辅
@@ -50,7 +50,7 @@
 **页面结构**
 ```
 导航栏 (固定顶部，磨砂玻璃效果)
-  ├── Logo: Oriental Treasure
+  ├── Logo: Aurora Oriens
   ├── 链接: Collections / Our Story / Bespoke / Jewelry Guide
   ├── 购物车图标 (带角标数量)
   └── CTA: Shop Now

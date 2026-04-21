@@ -1,4 +1,4 @@
-# Oriental Treasure · 团队分工手册
+# Aurora Oriens · 团队分工手册
 
 > 版本：v1.0 · 2026-04-21
 > 适用：神冢 × 丞相 × Claude Code 三人协作
@@ -140,7 +140,7 @@ SEO产品描述    → 丞相主笔，Claude辅助
 
 ## 六、项目卡片
 
-### Oriental Treasure 独立站
+### Aurora Oriens 独立站
 | 项目 | 内容 |
 |------|------|
 | **神冢** | 审美把控、品牌定位、内容终审 |

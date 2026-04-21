@@ -1,7 +1,6 @@
-# Oriental Treasure · 东方美学轻奢珠宝独立站
+# Aurora Oriens · 东方美学轻奢珠宝独立站
 
-> 版本：v1.0 · 2026-04-21
-> 定位：面向北美/欧洲市场的东方美学轻奢珠宝独立站
+> 版本：v1.0 · 2026-04-21（品牌名：Aurora Oriens，原名 Oriental Treasure）
 > 团队：神冢（创始人）× 丞相（COO）× Claude Code（CTO）
 
 ---
@@ -9,14 +8,14 @@
 ## 📁 项目结构
 
 ```
-Oriental-Treasure/
+Aurora-Oriens/
 ├── README.md                       ← 你在这里
 ├── CLAUDE.md                       ← Claude 开发规范
 ├── ROLES.md                        ← 三人分工手册
 ├── TASTE.md                        ← 审美校准档案
 ├── docs/
-│   ├── Oriental-Treasure-内容资产.md
-│   ├── Oriental-Treasure-开发手册.md
+│   ├── Aurora-Oriens-内容资产.md
+│   ├── Aurora-Oriens-开发手册.md
 │   └── superpowers/
 │       ├── specs/2026-04-21-技术规范.md   ← 设计规范
 │       └── plans/2026-04-21-待办任务.md   ← 待办清单
@@ -83,7 +82,7 @@ Claude 可直接执行，无需额外 SPEC：
 | 2026-04-21 | 独立站起步，纯静态HTML原型 |
 | 2026-04-21 | 不用 Shopify，支付方案待定 |
 | 2026-04-21 | 三人分工：神冢决策 + 丞相调度 + Claude执行 |
-| 2026-04-21 | 文件分散 → 全部整理到 ~/Desktop/Oriental-Treasure/ |
+| 2026-04-21 | 文件分散 → 全部整理到 ~/Desktop/Aurora-Oriens/ |
 
 ---
 
@@ -91,8 +90,8 @@ Claude 可直接执行，无需额外 SPEC：
 
 ```bash
 # 浏览器直接打开
-open ~/Desktop/Oriental-Treasure/src/主页设计.html
+open ~/Desktop/Aurora-Oriens/src/主页设计.html
 
 # Claude 开发规范
-cat ~/Desktop/Oriental-Treasure/CLAUDE.md
+cat ~/Desktop/Aurora-Oriens/CLAUDE.md
 ```

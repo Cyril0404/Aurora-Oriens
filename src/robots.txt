@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /src/
 Allow: /
-Sitemap: https://www.orientaltreasure.com/sitemap.xml
+Sitemap: https://www.auroraoriens.com/sitemap.xml
