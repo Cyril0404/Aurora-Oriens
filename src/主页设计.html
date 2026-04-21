@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oriental Treasure — Fine Jewelry from China</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ========================
+       CSS VARIABLES — Design Tokens
+    ======================== */
+    :root {
+      --color-ivory: #FFFFF0;
+      --color-ivory-warm: #FAF8F5;
+      --color-ink: #1A1A1A;
+      --color-ink-light: #4A4A4A;
+      --color-gold: #C9A84C;
+      --color-gold-light: #E8D5A3;
+      --color-red-subtle: #B85C5A;
+      --color-gray-light: #F5F3EF;
+      --color-gray: #E0DDD8;
+
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 8rem;
+
+      --transition-slow: 0.4s ease;
+      --transition-fast: 0.2s ease;
+    }
+
+    /* ========================
+       RESET & BASE
+    ======================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-ivory);
+      color: var(--color-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ========================
+       TYPOGRAPHY
+    ======================== */
+    .text-serif { font-family: var(--font-serif); }
+    .text-sans { font-family: var(--font-sans); }
+
+    h1, h2, h3 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    /* ========================
+       NAVIGATION
+    ======================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 240, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .nav__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav__logo {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--color-ink);
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-light);
+      transition: color var(--transition-fast);
+    }
+
+    .nav__links a:hover {
+      color: var(--color-gold);
+    }
+
+    .nav__cta {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.5rem;
+      border: 1px solid var(--color-ink);
+      background: transparent;
+      color: var(--color-ink);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .nav__cta:hover {
+      background: var(--color-ink);
+      color: var(--color-ivory);
+    }
+
+    /* ========================
+       HERO
+    ======================== */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 5rem;
+    }
+
+    .hero__content {
+      padding: 4rem 6rem;
+    }
+
+    .hero__eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__title {
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--color-ink);
+    }
+
+    .hero__subtitle {
+      font-size: 1rem;
+      color: var(--color-ink-light);
+      max-width: 38ch;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn--primary {
+      padding: 0.9rem 2.5rem;
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .btn--primary:hover {
+      background: var(--color-gold);
+    }
+
+    .btn--ghost {
+      padding: 0.9rem 2rem;
+      background: transparent;
+      color: var(--color-ink);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--color-gray);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--color-ink);
+    }
+
+    .hero__image {
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ========================
+       BRAND PILLARS
+    ======================== */
+    .pillars {
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      padding: var(--space-xl) 2rem;
+    }
+
+    .pillars__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+    }
+
+    .pillar {
+      text-align: center;
+    }
+
+    .pillar__icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .pillar__title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-ivory);
+    }
+
+    .pillar__text {
+      font-size: 0.85rem;
+      color: rgba(255,255,240,0.6);
+      line-height: 1.7;
+    }
+
+    /* ========================
+       COLLECTIONS
+    ======================== */
+    .collections {
+      padding: var(--space-xl) 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--color-ink-light);
+      max-width: 50ch;
+      margin: 0 auto 3.5rem;
+      line-height: 1.7;
+    }
+
+    .collections__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .collection-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .collection-card__image {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .collection-card:hover .collection-card__image {
+      transform: scale(1.04);
+    }
+
+    .collection-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+    }
+
+    .collection-card__name {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: white;
+      margin-bottom: 0.3rem;
+    }
+
+    .collection-card__price {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.08em;
+    }
+
+    /* ========================
+       FEATURED PRODUCT
+    ======================== */
+    .featured {
+      padding: var(--space-xl) 2rem;
+      background: var(--color-ivory-warm);
+    }
+
+    .featured__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .featured__image-wrap {
+      position: relative;
+    }
+
+    .featured__image {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+
+    .featured__badge {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: var(--color-red-subtle);
+      color: white;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .featured__content {
+      padding: 2rem 0;
+    }
+
+    .featured__title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .featured__price {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .featured__desc {
+      font-size: 0.9rem;
+      color: var(--color-ink-light);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      max-width: 44ch;
+    }
+
+    .featured__meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      font-size: 0.8rem;
+    }
+
+    .featured__meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .featured__meta-label {
+      color: var(--color-ink-light);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .featured__meta-value {
+      font-weight: 500;
+      color: var(--color-ink);
+    }
+
+    /* ========================
+       CRAFTSMANSHIP
+    ======================== */
+    .crafts {
+      padding: var(--space-xl) 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .crafts__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .craft-item__image {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      margin-bottom: 1.25rem;
+    }
+
+    .craft-item__title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .craft-item__text {
+      font-size: 0.82rem;
+      color: var(--color-ink-light);
+      line-height: 1.7;
+    }
+
+    /* ========================
+       NEWSLETTER
+    ======================== */
+    .newsletter {
+      background: var(--color-ink);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .newsletter__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      color: var(--color-ivory);
+      margin-bottom: 0.75rem;
+    }
+
+    .newsletter__sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,240,0.55);
+      margin-bottom: 2rem;
+    }
+
+    .newsletter__form {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,240,0.3);
+    }
+
+    .newsletter__input {
+      flex: 1;
+      padding: 0.9rem 1.2rem;
+      background: transparent;
+      border: none;
+      color: var(--color-ivory);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+    }
+
+    .newsletter__input::placeholder {
+      color: rgba(255,255,240,0.35);
+    }
+
+    .newsletter__input:focus {
+      outline: none;
+    }
+
+    .newsletter__btn {
+      padding: 0.9rem 1.8rem;
+      background: var(--color-gold);
+      color: var(--color-ink);
+      border: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--transition-fast);
+    }
+
+    .newsletter__btn:hover {
+      background: var(--color-gold-light);
+    }
+
+    /* ========================
+       FOOTER
+    ======================== */
+    .footer {
+      background: var(--color-ivory-warm);
+      border-top: 1px solid var(--color-gray);
+      padding: 3rem 2rem;
+    }
+
+    .footer__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer__brand {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .footer__links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer__links a {
+      font-size: 0.75rem;
+      color: var(--color-ink-light);
+      letter-spacing: 0.08em;
+      transition: color var(--transition-fast);
+    }
+
+    .footer__links a:hover {
+      color: var(--color-gold);
+    }
+
+    .footer__copy {
+      font-size: 0.72rem;
+      color: var(--color-ink-light);
+    }
+
+    /* ========================
+       CART ICON
+    ======================== */
+    .nav__cart {
+      position: relative;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-ink);
+      transition: color var(--transition-fast);
+    }
+    .nav__cart:hover { color: var(--color-gold); }
+    .nav__cart svg { width: 22px; height: 22px; }
+    .nav__cart-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--color-gold);
+      color: var(--color-ivory);
+      font-size: 0.65rem;
+      font-weight: 600;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      transition: transform 0.2s;
+    }
+    .nav__cart-badge.pop { animation: badge-pop 0.3s ease; }
+    @keyframes badge-pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.4); }
+      100% { transform: scale(1); }
+    }
+
+    /* ========================
+       CART DRAWER
+    ======================== */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cart-overlay.open { opacity: 1; pointer-events: all; }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 420px;
+      max-width: 95vw;
+      background: var(--color-ivory);
+      z-index: 201;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-drawer.open { transform: translateX(0); }
+
+    .cart-drawer__header {
+      padding: 1.5rem 1.75rem;
+      border-bottom: 1px solid var(--color-gray);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-drawer__title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+    .cart-drawer__close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--color-ink-light);
+      padding: 0.25rem;
+      line-height: 1;
+    }
+    .cart-drawer__close:hover { color: var(--color-ink); }
+
+    .cart-drawer__body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem 1.75rem;
+    }
+    .cart-drawer__empty {
+      text-align: center;
+      padding: 3rem 0;
+      color: var(--color-ink-light);
+    }
+    .cart-drawer__empty-icon { font-size: 3rem; margin-bottom: 0.75rem; display: block; }
+    .cart-drawer__empty-text { font-size: 0.85rem; }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 70px 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--color-gray-light);
+    }
+    .cart-item:last-child { border-bottom: none; }
+    .cart-item__img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+    }
+    .cart-item__info { min-width: 0; }
+    .cart-item__name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cart-item__price { font-size: 0.8rem; color: var(--color-gold); font-family: var(--font-serif); }
+    .cart-item__qty {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+    .cart-item__qty-btn {
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--color-gray);
+      background: transparent;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-ink);
+      transition: all 0.15s;
+    }
+    .cart-item__qty-btn:hover { background: var(--color-gray-light); }
+    .cart-item__qty-num { font-size: 0.8rem; min-width: 16px; text-align: center; }
+    .cart-item__remove {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--color-ink-light);
+      font-size: 0.7rem;
+      padding: 0.25rem;
+      text-decoration: underline;
+      transition: color 0.15s;
+    }
+    .cart-item__remove:hover { color: var(--color-red-subtle); }
+
+    .cart-drawer__footer {
+      padding: 1.5rem 1.75rem;
+      border-top: 1px solid var(--color-gray);
+    }
+    .cart-drawer__total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .cart-drawer__total-label { font-size: 0.82rem; color: var(--color-ink-light); letter-spacing: 0.08em; text-transform: uppercase; }
+    .cart-drawer__total-price { font-family: var(--font-serif); font-size: 1.2rem; color: var(--color-gold); }
+    .cart-drawer__checkout {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      border: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: background 0.2s;
+    }
+    .cart-drawer__checkout:hover { background: var(--color-gold); }
+    .cart-drawer__continue {
+      width: 100%;
+      padding: 0.65rem;
+      background: transparent;
+      color: var(--color-ink-light);
+      border: 1px solid var(--color-gray);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      margin-top: 0.5rem;
+      transition: all 0.2s;
+    }
+    .cart-drawer__continue:hover { border-color: var(--color-ink); color: var(--color-ink); }
+
+    /* ========================
+       ADD TO CART BUTTON
+    ======================== */
+    .add-to-cart-btn {
+      padding: 0.75rem 1.5rem;
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      border: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .add-to-cart-btn:hover { background: var(--color-gold); }
+    .add-to-cart-btn.added {
+      background: var(--color-gold);
+      color: var(--color-ivory);
+    }
+
+    /* ========================
+       CHECKOUT OVERLAY
+    ======================== */
+    .checkout-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--color-ivory);
+      z-index: 300;
+      overflow-y: auto;
+      display: none;
+    }
+    .checkout-overlay.open { display: block; }
+
+    .checkout {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+    .checkout__back {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-ink-light);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 2rem;
+      padding: 0;
+      transition: color 0.2s;
+    }
+    .checkout__back:hover { color: var(--color-gold); }
+    .checkout__logo { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600; letter-spacing: 0.08em; text-align: center; margin-bottom: 2.5rem; }
+
+    /* Steps */
+    .checkout__steps {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .checkout__steps::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 20%;
+      right: 20%;
+      height: 1px;
+      background: var(--color-gray);
+      z-index: 0;
+    }
+    .checkout__step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      position: relative;
+      z-index: 1;
+      padding: 0 1.5rem;
+    }
+    .checkout__step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-ivory);
+      border: 1px solid var(--color-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--color-ink-light);
+      transition: all 0.2s;
+    }
+    .checkout__step.active .checkout__step-num {
+      background: var(--color-ink);
+      border-color: var(--color-ink);
+      color: var(--color-ivory);
+    }
+    .checkout__step.done .checkout__step-num {
+      background: var(--color-gold);
+      border-color: var(--color-gold);
+      color: var(--color-ivory);
+    }
+    .checkout__step-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-ink-light); transition: color 0.2s; }
+    .checkout__step.active .checkout__step-label { color: var(--color-ink); font-weight: 500; }
+
+    /* Step panels */
+    .checkout__panel { display: none; }
+    .checkout__panel.active { display: block; }
+
+    /* Cart review */
+    .checkout__section-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+    .checkout__cart-item {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--color-gray-light);
+    }
+    .checkout__cart-item:first-of-type { border-top: 1px solid var(--color-gray-light); }
+    .checkout__cart-item img { width: 60px; height: 60px; object-fit: cover; }
+    .checkout__cart-item-info { font-size: 0.82rem; }
+    .checkout__cart-item-name { font-weight: 500; margin-bottom: 0.2rem; }
+    .checkout__cart-item-meta { color: var(--color-ink-light); font-size: 0.75rem; }
+    .checkout__cart-item-price { font-family: var(--font-serif); color: var(--color-gold); }
+    .checkout__summary {
+      background: var(--color-gray-light);
+      padding: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .checkout__summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      padding: 0.3rem 0;
+      color: var(--color-ink-light);
+    }
+    .checkout__summary-row.total {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--color-ink);
+      border-top: 1px solid var(--color-gray);
+      padding-top: 0.6rem;
+      margin-top: 0.4rem;
+    }
+    .checkout__summary-row.total .val { color: var(--color-gold); font-family: var(--font-serif); font-size: 1.1rem; }
+
+    /* Address form */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-grid.col-1 { grid-template-columns: 1fr; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-light); }
+    .form-input {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--color-gray);
+      background: var(--color-ivory);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: var(--color-ink);
+      transition: border-color 0.2s;
+    }
+    .form-input:focus { outline: none; border-color: var(--color-gold); }
+    .form-input.error { border-color: var(--color-red-subtle); }
+    .form-error { font-size: 0.68rem; color: var(--color-red-subtle); min-height: 0.9rem; }
+
+    /* Payment options */
+    .payment-options { display: flex; flex-direction: column; gap: 0.75rem; }
+    .payment-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--color-gray);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .payment-option.selected { border-color: var(--color-gold); background: rgba(201, 168, 76, 0.05); }
+    .payment-option:hover { border-color: var(--color-ink-light); }
+    .payment-option input { display: none; }
+    .payment-radio {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid var(--color-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .payment-option.selected .payment-radio {
+      border-color: var(--color-gold);
+      background: var(--color-gold);
+    }
+    .payment-radio::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-ivory);
+      display: none;
+    }
+    .payment-option.selected .payment-radio::after { display: block; }
+    .payment-option__icon { font-size: 1.5rem; }
+    .payment-option__label { font-size: 0.85rem; font-weight: 500; }
+    .payment-option__desc { font-size: 0.72rem; color: var(--color-ink-light); margin-top: 0.15rem; }
+    .payment-note {
+      font-size: 0.72rem;
+      color: var(--color-ink-light);
+      text-align: center;
+      margin-top: 1rem;
+      padding: 0.75rem;
+      background: var(--color-gray-light);
+      border: 1px dashed var(--color-gray);
+    }
+
+    /* Action buttons */
+    .checkout__actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .checkout__btn {
+      flex: 1;
+      padding: 0.9rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      border: none;
+      transition: all 0.2s;
+    }
+    .checkout__btn--primary { background: var(--color-ink); color: var(--color-ivory); }
+    .checkout__btn--primary:hover { background: var(--color-gold); }
+    .checkout__btn--ghost { background: transparent; border: 1px solid var(--color-gray); color: var(--color-ink-light); }
+    .checkout__btn--ghost:hover { border-color: var(--color-ink); color: var(--color-ink); }
+    .checkout__btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Success page */
+    .checkout__success {
+      text-align: center;
+      padding: 3rem 0;
+    }
+    .checkout__success-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .checkout__success-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .checkout__success-order {
+      font-size: 0.78rem;
+      color: var(--color-ink-light);
+      margin-bottom: 2rem;
+      letter-spacing: 0.1em;
+    }
+    .checkout__success-summary {
+      background: var(--color-gray-light);
+      padding: 1.5rem;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+    .checkout__success-summary p { font-size: 0.82rem; padding: 0.3rem 0; color: var(--color-ink-light); }
+    .checkout__success-summary strong { color: var(--color-ink); }
+    .checkout__success-note {
+      font-size: 0.78rem;
+      color: var(--color-ink-light);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* Loading spinner */
+    .checkout__loading {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 0;
+      gap: 1rem;
+    }
+    .checkout__loading.active { display: flex; }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--color-gray);
+      border-top-color: var(--color-gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .checkout__loading-text { font-size: 0.8rem; color: var(--color-ink-light); letter-spacing: 0.08em; }
+
+    /* ========================
+       RESPONSIVE
+    ======================== */
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero__image { height: 60vw; min-height: 320px; }
+      .hero__content { padding: 3rem 2rem; order: 2; }
+      .pillars__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .collections__grid { grid-template-columns: 1fr; }
+      .featured__inner { grid-template-columns: 1fr; gap: 2rem; }
+      .crafts__grid { grid-template-columns: 1fr; }
+      .footer__inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .footer__links { flex-wrap: wrap; justify-content: center; }
+      .cart-drawer { width: 100%; }
+      .form-grid { grid-template-columns: 1fr; }
+      .checkout__steps { gap: 0; }
+      .checkout__step { padding: 0 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ======================== NAVIGATION ======================== -->
+<nav class="nav">
+  <div class="nav__inner">
+    <div class="nav__logo">Oriental Treasure</div>
+    <ul class="nav__links">
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#">Our Story</a></li>
+      <li><a href="#">Bespoke</a></li>
+      <li><a href="#">Jewelry Guide</a></li>
+    </ul>
+    <button class="nav__cart" id="cartBtn" aria-label="Shopping cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="nav__cart-badge" id="cartBadge" style="display:none">0</span>
+    </button>
+    <button class="nav__cta">Shop Now</button>
+  </div>
+</nav>
+
+<!-- ======================== HERO ======================== -->
+<section class="hero">
+  <div class="hero__content">
+    <p class="hero__eyebrow">Eastern Craftsmanship, Timeless Treasure</p>
+    <h1 class="hero__title">Where Oriental<br>Artistry Meets<br>Modern Elegance</h1>
+    <p class="hero__subtitle">Handcrafted Chinese jewelry designed for the discerning. Each piece tells a story of heritage, reimagined for today.</p>
+    <div class="hero__actions">
+      <button class="btn--primary">Explore Collections</button>
+      <button class="btn--ghost">Our Story</button>
+    </div>
+  </div>
+  <div class="hero__image">
+    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=900&q=80" alt="Oriental jewelry hero">
+  </div>
+</section>
+
+<!-- ======================== BRAND PILLARS ======================== -->
+<section class="pillars">
+  <div class="pillars__inner">
+    <div class="pillar">
+      <span class="pillar__icon">✦</span>
+      <h3 class="pillar__title">Artisan Crafted</h3>
+      <p class="pillar__text">Each piece is hand-finished by skilled Chinese artisans using techniques passed down through generations.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar__icon">◈</span>
+      <h3 class="pillar__title">Certified Quality</h3>
+      <p class="pillar__text">Ethically sourced gemstones with GIA/IGI certification. Every piece passes our 12-point quality inspection.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar__icon">◇</span>
+      <h3 class="pillar__title">Global Delivery</h3>
+      <p class="pillar__text">Insured worldwide shipping with DHL Express. 30-day hassle-free returns for all orders.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== COLLECTIONS ======================== -->
+<section class="collections">
+  <p class="section-label">Curated for You</p>
+  <h2 class="section-title">Our Collections</h2>
+  <p class="section-subtitle">From everyday elegance to statement pieces — find the jewelry that speaks to you.</p>
+
+  <div class="collections__grid">
+    <div class="collection-card">
+      <img class="collection-card__image" src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80" alt="Daily Essentials">
+      <div class="collection-card__overlay">
+        <h3 class="collection-card__name">Daily Essentials</h3>
+        <p class="collection-card__price">From $35</p>
+      </div>
+      <button class="add-to-cart-btn" data-id="de-001" data-name="Jade Bangle Bracelet" data-price="45" data-image="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80">Add to Cart — $45</button>
+    </div>
+    <div class="collection-card">
+      <img class="collection-card__image" src="https://images.unsplash.com/photo-1611652022419-a9419f0d6d3e?w=600&q=80" alt="Statement Edit">
+      <div class="collection-card__overlay">
+        <h3 class="collection-card__name">Statement Edit</h3>
+        <p class="collection-card__price">From $65</p>
+      </div>
+      <button class="add-to-cart-btn" data-id="se-001" data-name="Phoenix Feather Brooch" data-price="78" data-image="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80">Add to Cart — $78</button>
+    </div>
+    <div class="collection-card">
+      <img class="collection-card__image" src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80" alt="Bespoke">
+      <div class="collection-card__overlay">
+        <h3 class="collection-card__name">Bespoke Service</h3>
+        <p class="collection-card__price">From $150</p>
+      </div>
+      <button class="add-to-cart-btn" data-id="bp-001" data-name="Custom Initials Pendant" data-price="150" data-image="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80">Add to Cart — $150</button>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FEATURED PRODUCT ======================== -->
+<section class="featured">
+  <div class="featured__inner">
+    <div class="featured__image-wrap">
+      <img class="featured__image" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80" alt="Featured jewelry">
+      <span class="featured__badge">Bestseller</span>
+    </div>
+    <div class="featured__content">
+      <p class="section-label" style="text-align:left">Featured Piece</p>
+      <h2 class="featured__title">Lotus Enamel Pendant<br>with Natural Jade Inlay</h2>
+      <p class="featured__price">$68.00 USD</p>
+      <p class="featured__desc">Inspired by classical Chinese lotus motifs, this pendant features hand-applied cloisonné enamel and a natural jade cabochon. Adjustable 18K gold-filled chain, suitable for everyday wear.</p>
+      <div class="featured__meta">
+        <div class="featured__meta-item">
+          <span class="featured__meta-label">Material</span>
+          <span class="featured__meta-value">18K Gold-Fill + Jade</span>
+        </div>
+        <div class="featured__meta-item">
+          <span class="featured__meta-label">Chain Length</span>
+          <span class="featured__meta-value">16"–20" Adjustable</span>
+        </div>
+        <div class="featured__meta-item">
+          <span class="featured__meta-label">Certificate</span>
+          <span class="featured__meta-value">IGI Certified</span>
+        </div>
+        <div class="featured__meta-item">
+          <span class="featured__meta-label">Shipping</span>
+          <span class="featured__meta-value">Free worldwide</span>
+        </div>
+      </div>
+      <button class="btn--primary add-to-cart-btn" style="width:100%" data-id="lotus-pendant" data-name="Lotus Enamel Pendant with Natural Jade Inlay" data-price="68" data-image="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80">Add to Cart — $68</button>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== CRAFTSMANSHIP ======================== -->
+<section class="crafts">
+  <p class="section-label">Our Heritage</p>
+  <h2 class="section-title">Craftsmanship Beyond Compare</h2>
+  <div class="crafts__grid">
+    <div class="craft-item">
+      <img class="craft-item__image" src="https://images.unsplash.com/photo-1618403088890-3d9ff6f4e0b1?w=600&q=80" alt="Filigree work">
+      <h3 class="craft-item__title">Gold Filigree</h3>
+      <p class="craft-item__text">Intricate gold wire work dating back 700 years. Each filament is 0.08mm — thinner than human hair.</p>
+    </div>
+    <div class="craft-item">
+      <img class="craft-item__image" src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80" alt="Enamel work">
+      <h3 class="craft-item__title">Cloisonné Enamel</h3>
+      <p class="craft-item__text">Hand-applied enamel using the Limoges technique, reimagined with Chinese color palettes and motifs.</p>
+    </div>
+    <div class="craft-item">
+      <img class="craft-item__image" src="https://images.unsplash.com/photo-1603974372039-0a2dd4f93aec?w=600&q=80" alt="Jade carving">
+      <h3 class="craft-item__title">Jade Micro-Carving</h3>
+      <p class="craft-item__text">Nephrite jade hand-carved by master sculptors from the jade capital of China — Nanyang, Henan Province.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== NEWSLETTER ======================== -->
+<section class="newsletter">
+  <h2 class="newsletter__title">Join the Inner Circle</h2>
+  <p class="newsletter__sub">Early access to new collections · Private sale invitations · Artisan stories</p>
+  <form class="newsletter__form">
+    <input class="newsletter__input" type="email" placeholder="Your email address">
+    <button class="newsletter__btn" type="submit">Subscribe</button>
+  </form>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">Oriental Treasure</div>
+    <ul class="footer__links">
+      <li><a href="#">Shipping & Returns</a></li>
+      <li><a href="#">Size Guide</a></li>
+      <li><a href="#">Care Instructions</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <p class="footer__copy">© 2026 Oriental Treasure. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ======================== CART DRAWER ======================== -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer__header">
+    <span class="cart-drawer__title">Shopping Bag</span>
+    <button class="cart-drawer__close" id="cartClose">&times;</button>
+  </div>
+  <div class="cart-drawer__body" id="cartBody">
+    <div class="cart-drawer__empty">
+      <span class="cart-drawer__empty-icon">◇</span>
+      <p class="cart-drawer__empty-text">Your bag is empty</p>
+    </div>
+  </div>
+  <div class="cart-drawer__footer" id="cartFooter" style="display:none">
+    <div class="cart-drawer__total">
+      <span class="cart-drawer__total-label">Total</span>
+      <span class="cart-drawer__total-price" id="cartTotal">$0.00</span>
+    </div>
+    <button class="cart-drawer__checkout" id="checkoutBtn">Proceed to Checkout</button>
+    <button class="cart-drawer__continue" id="continueShopping">Continue Shopping</button>
+  </div>
+</div>
+
+<!-- ======================== CHECKOUT OVERLAY ======================== -->
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout">
+    <button class="checkout__back" id="checkoutBack">
+      ← <span>Back to shopping</span>
+    </button>
+    <div class="checkout__logo">Oriental Treasure</div>
+
+    <!-- Steps -->
+    <div class="checkout__steps">
+      <div class="checkout__step active" data-step="1">
+        <div class="checkout__step-num">1</div>
+        <span class="checkout__step-label">Cart</span>
+      </div>
+      <div class="checkout__step" data-step="2">
+        <div class="checkout__step-num">2</div>
+        <span class="checkout__step-label">Address</span>
+      </div>
+      <div class="checkout__step" data-step="3">
+        <div class="checkout__step-num">3</div>
+        <span class="checkout__step-label">Payment</span>
+      </div>
+      <div class="checkout__step" data-step="4">
+        <div class="checkout__step-num">4</div>
+        <span class="checkout__step-label">Done</span>
+      </div>
+    </div>
+
+    <!-- Panel 1: Cart Review -->
+    <div class="checkout__panel active" id="panel1">
+      <h2 class="checkout__section-title">Review Your Order</h2>
+      <div id="checkoutCartItems"></div>
+      <div class="checkout__summary" id="checkoutSummary"></div>
+      <div class="checkout__actions">
+        <button class="checkout__btn checkout__btn--ghost" id="panel1Back">Back to Cart</button>
+        <button class="checkout__btn checkout__btn--primary" id="panel1Next">Continue to Address →</button>
+      </div>
+    </div>
+
+    <!-- Panel 2: Address -->
+    <div class="checkout__panel" id="panel2">
+      <h2 class="checkout__section-title">Shipping Address</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input class="form-input" id="firstName" placeholder="e.g. Mei">
+          <span class="form-error" id="err-firstName"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input class="form-input" id="lastName" placeholder="e.g. Zhang">
+          <span class="form-error" id="err-lastName"></span>
+        </div>
+      </div>
+      <div class="form-grid col-1">
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" id="phone" placeholder="+86 138 0000 0000">
+          <span class="form-error" id="err-phone"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" id="email" type="email" placeholder="meizhang@example.com">
+          <span class="form-error" id="err-email"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Street Address</label>
+          <input class="form-input" id="address" placeholder="No. 88 Xintiandi, Huangpu District">
+          <span class="form-error" id="err-address"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">City / District</label>
+          <input class="form-input" id="city" placeholder="Shanghai">
+          <span class="form-error" id="err-city"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Postal Code</label>
+          <input class="form-input" id="postal" placeholder="200000">
+          <span class="form-error" id="err-postal"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Country</label>
+          <input class="form-input" id="country" placeholder="China" value="China">
+          <span class="form-error" id="err-country"></span>
+        </div>
+      </div>
+      <div class="checkout__actions">
+        <button class="checkout__btn checkout__btn--ghost" id="panel2Back">← Back</button>
+        <button class="checkout__btn checkout__btn--primary" id="panel2Next">Continue to Payment →</button>
+      </div>
+    </div>
+
+    <!-- Panel 3: Payment -->
+    <div class="checkout__panel" id="panel3">
+      <h2 class="checkout__section-title">Payment Method</h2>
+      <div class="payment-options" id="paymentOptions">
+        <div class="payment-option selected" data-method="alipay">
+          <input type="radio" name="payment" value="alipay" checked>
+          <div class="payment-radio"></div>
+          <span class="payment-option__icon">¥</span>
+          <div>
+            <div class="payment-option__label">Alipay</div>
+            <div class="payment-option__desc">Pay securely with your Alipay account</div>
+          </div>
+        </div>
+        <div class="payment-option" data-method="wechat">
+          <input type="radio" name="payment" value="wechat">
+          <div class="payment-radio"></div>
+          <span class="payment-option__icon">W</span>
+          <div>
+            <div class="payment-option__label">WeChat Pay</div>
+            <div class="payment-option__desc">Pay with WeChat Pay</div>
+          </div>
+        </div>
+        <div class="payment-option" data-method="card">
+          <input type="radio" name="payment" value="card">
+          <div class="payment-radio"></div>
+          <span class="payment-option__icon">💳</span>
+          <div>
+            <div class="payment-option__label">Credit / Debit Card</div>
+            <div class="payment-option__desc">Visa, Mastercard, UnionPay</div>
+          </div>
+        </div>
+      </div>
+      <div class="payment-note">🔒 This is a demo — no real payment will be processed</div>
+      <div class="checkout__summary" id="paymentSummary"></div>
+      <div class="checkout__actions">
+        <button class="checkout__btn checkout__btn--ghost" id="panel3Back">← Back</button>
+        <button class="checkout__btn checkout__btn--primary" id="panel3Next">Place Order →</button>
+      </div>
+      <div class="checkout__loading" id="paymentLoading">
+        <div class="spinner"></div>
+        <span class="checkout__loading-text">Processing your order...</span>
+      </div>
+    </div>
+
+    <!-- Panel 4: Success -->
+    <div class="checkout__panel" id="panel4">
+      <div class="checkout__success">
+        <span class="checkout__success-icon">✦</span>
+        <h2 class="checkout__success-title">Thank You!</h2>
+        <p class="checkout__success-order" id="successOrderNum">Order #OT-000000</p>
+        <div class="checkout__success-summary" id="successSummary"></div>
+        <p class="checkout__success-note">Your order has been placed and will be shipped within 3–5 business days. A confirmation has been sent to your email. Enjoy your Oriental Treasure!</p>
+        <button class="checkout__btn checkout__btn--primary" id="successContinue">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== JAVASCRIPT ======================== -->
+<script>
+// ---------- Cart State ----------
+const CART_KEY = 'ot_cart';
+function getCart() {
+  try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+  catch { return []; }
+}
+function saveCart(items) {
+  localStorage.setItem(CART_KEY, JSON.stringify(items));
+}
+function cartTotal(items) {
+  return items.reduce((s, i) => s + i.price * i.quantity, 0);
+}
+function cartCount(items) {
+  return items.reduce((s, i) => s + i.quantity, 0);
+}
+
+// ---------- Cart UI ----------
+const cartOverlay = document.getElementById('cartOverlay');
+const cartDrawer = document.getElementById('cartDrawer');
+const cartBody = document.getElementById('cartBody');
+const cartFooter = document.getElementById('cartFooter');
+const cartBadge = document.getElementById('cartBadge');
+const cartTotalEl = document.getElementById('cartTotal');
+
+function openCart() {
+  cartOverlay.classList.add('open');
+  cartDrawer.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderCartDrawer();
+}
+function closeCart() {
+  cartOverlay.classList.remove('open');
+  cartDrawer.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function renderCartDrawer() {
+  const items = getCart();
+  if (items.length === 0) {
+    cartBody.innerHTML = '<div class="cart-drawer__empty"><span class="cart-drawer__empty-icon">◇</span><p class="cart-drawer__empty-text">Your bag is empty</p></div>';
+    cartFooter.style.display = 'none';
+    return;
+  }
+  cartFooter.style.display = '';
+  cartBody.innerHTML = items.map(item => `
+    <div class="cart-item">
+      <img class="cart-item__img" src="${item.image}" alt="${item.name}">
+      <div class="cart-item__info">
+        <div class="cart-item__name">${item.name}</div>
+        <div class="cart-item__price">$${item.price.toFixed(2)}</div>
+        <div class="cart-item__qty">
+          <button class="cart-item__qty-btn" data-id="${item.id}" data-delta="-1">−</button>
+          <span class="cart-item__qty-num">${item.quantity}</span>
+          <button class="cart-item__qty-btn" data-id="${item.id}" data-delta="1">+</button>
+        </div>
+      </div>
+      <button class="cart-item__remove" data-id="${item.id}">Remove</button>
+    </div>
+  `).join('');
+  cartTotalEl.textContent = '$' + cartTotal(items).toFixed(2);
+}
+function updateBadge() {
+  const items = getCart();
+  const count = cartCount(items);
+  if (count > 0) {
+    cartBadge.textContent = count;
+    cartBadge.style.display = 'flex';
+    cartBadge.classList.remove('pop');
+    void cartBadge.offsetWidth;
+    cartBadge.classList.add('pop');
+  } else {
+    cartBadge.style.display = 'none';
+  }
+}
+
+// ---------- Add to Cart ----------
+document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const { id, name, price, image } = btn.dataset;
+    const items = getCart();
+    const existing = items.find(i => i.id === id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      items.push({ id, name, name, price: Number(price), image, quantity: 1 });
+    }
+    saveCart(items);
+    updateBadge();
+    // Visual feedback
+    btn.classList.add('added');
+    btn.textContent = '✓ Added';
+    setTimeout(() => {
+      btn.classList.remove('added');
+      const original = btn.dataset;
+      btn.textContent = `Add to Cart — $${original.price}`;
+    }, 1500);
+    openCart();
+  });
+});
+
+// ---------- Cart Interactions ----------
+document.getElementById('cartBtn').addEventListener('click', openCart);
+document.getElementById('cartClose').addEventListener('click', closeCart);
+document.getElementById('continueShopping').addEventListener('click', closeCart);
+cartOverlay.addEventListener('click', closeCart);
+
+cartBody.addEventListener('click', e => {
+  const btn = e.target.closest('.cart-item__qty-btn');
+  if (btn) {
+    const { id, delta } = btn.dataset;
+    const items = getCart();
+    const item = items.find(i => i.id === id);
+    if (item) {
+      item.quantity += Number(delta);
+      if (item.quantity <= 0) {
+        items.splice(items.indexOf(item), 1);
+      }
+      saveCart(items);
+      updateBadge();
+      renderCartDrawer();
+    }
+  }
+  const removeBtn = e.target.closest('.cart-item__remove');
+  if (removeBtn) {
+    const { id } = removeBtn.dataset;
+    const items = getCart().filter(i => i.id !== id);
+    saveCart(items);
+    updateBadge();
+    renderCartDrawer();
+  }
+});
+
+// ---------- Checkout Flow ----------
+const checkoutOverlay = document.getElementById('checkoutOverlay');
+let currentStep = 1;
+let checkoutData = { address: {}, payment: 'alipay' };
+
+function openCheckout() {
+  closeCart();
+  checkoutOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  currentStep = 1;
+  updateSteps();
+  renderCheckoutPanel();
+}
+
+function closeCheckout() {
+  checkoutOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+  currentStep = 1;
+}
+
+function updateSteps() {
+  document.querySelectorAll('.checkout__step').forEach(s => {
+    const n = Number(s.dataset.step);
+    s.classList.remove('active', 'done');
+    if (n === currentStep) s.classList.add('active');
+    else if (n < currentStep) s.classList.add('done');
+  });
+}
+
+function renderCheckoutPanel() {
+  document.querySelectorAll('.checkout__panel').forEach(p => p.classList.remove('active'));
+  const panel = document.getElementById('panel' + currentStep);
+  if (panel) panel.classList.add('active');
+
+  if (currentStep === 1) renderPanel1();
+  else if (currentStep === 3) renderPaymentSummary();
+}
+
+function renderPanel1() {
+  const items = getCart();
+  document.getElementById('checkoutCartItems').innerHTML = items.map(item => `
+    <div class="checkout__cart-item">
+      <img src="${item.image}" alt="${item.name}">
+      <div class="checkout__cart-item-info">
+        <div class="checkout__cart-item-name">${item.name}</div>
+        <div class="checkout__cart-item-meta">Qty: ${item.quantity}</div>
+      </div>
+      <div class="checkout__cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+    </div>
+  `).join('');
+  const total = cartTotal(items);
+  document.getElementById('checkoutSummary').innerHTML = `
+    <div class="checkout__summary-row"><span>Subtotal</span><span>$${total.toFixed(2)}</span></div>
+    <div class="checkout__summary-row"><span>Shipping</span><span>Free</span></div>
+    <div class="checkout__summary-row"><span>Tax (Estimated)</span><span>$0.00</span></div>
+    <div class="checkout__summary-row total"><span>Total</span><span class="val">$${total.toFixed(2)}</span></div>
+  `;
+}
+
+function renderPaymentSummary() {
+  const items = getCart();
+  const total = cartTotal(items);
+  document.getElementById('paymentSummary').innerHTML = `
+    <div class="checkout__summary-row"><span>Subtotal</span><span>$${total.toFixed(2)}</span></div>
+    <div class="checkout__summary-row"><span>Shipping</span><span>Free</span></div>
+    <div class="checkout__summary-row total"><span>Total</span><span class="val">$${total.toFixed(2)}</span></div>
+  `;
+}
+
+function validateAddress() {
+  const fields = ['firstName','lastName','phone','email','address','city','postal','country'];
+  let valid = true;
+  fields.forEach(f => {
+    const el = document.getElementById(f);
+    const err = document.getElementById('err-' + f);
+    el.classList.remove('error');
+    err.textContent = '';
+    if (!el.value.trim()) {
+      el.classList.add('error');
+      err.textContent = 'This field is required';
+      valid = false;
+    }
+    if (f === 'email' && el.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) {
+      el.classList.add('error');
+      err.textContent = 'Please enter a valid email';
+      valid = false;
+    }
+  });
+  return valid;
+}
+
+// Navigation
+document.getElementById('checkoutBtn').addEventListener('click', openCheckout);
+document.getElementById('checkoutBack').addEventListener('click', closeCheckout);
+
+document.getElementById('panel1Back').addEventListener('click', closeCheckout);
+document.getElementById('panel1Next').addEventListener('click', () => {
+  currentStep = 2;
+  updateSteps();
+  renderCheckoutPanel();
+});
+
+document.getElementById('panel2Back').addEventListener('click', () => {
+  currentStep = 1;
+  updateSteps();
+  renderCheckoutPanel();
+});
+document.getElementById('panel2Next').addEventListener('click', () => {
+  if (validateAddress()) {
+    checkoutData.address = {
+      firstName: document.getElementById('firstName').value.trim(),
+      lastName: document.getElementById('lastName').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      address: document.getElementById('address').value.trim(),
+      city: document.getElementById('city').value.trim(),
+      postal: document.getElementById('postal').value.trim(),
+      country: document.getElementById('country').value.trim(),
+    };
+    currentStep = 3;
+    updateSteps();
+    renderCheckoutPanel();
+  }
+});
+
+// Payment options
+document.getElementById('paymentOptions').addEventListener('click', e => {
+  const opt = e.target.closest('.payment-option');
+  if (!opt) return;
+  document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+  opt.classList.add('selected');
+  opt.querySelector('input').checked = true;
+  checkoutData.payment = opt.dataset.method;
+});
+
+document.getElementById('panel3Back').addEventListener('click', () => {
+  currentStep = 2;
+  updateSteps();
+  renderCheckoutPanel();
+});
+
+document.getElementById('panel3Next').addEventListener('click', () => {
+  // Show loading
+  document.getElementById('paymentLoading').classList.add('active');
+  document.querySelectorAll('#panel3 .checkout__actions').forEach(el => el.style.display = 'none');
+
+  setTimeout(() => {
+    document.getElementById('paymentLoading').classList.remove('active');
+    // Generate order
+    const orderNum = 'OT-' + Math.floor(100000 + Math.random() * 900000);
+    const items = getCart();
+    const total = cartTotal(items);
+    const addr = checkoutData.address;
+
+    document.getElementById('successOrderNum').textContent = 'Order ' + orderNum;
+    document.getElementById('successSummary').innerHTML = `
+      <p><strong>${items.length} item(s)</strong> — $${total.toFixed(2)} total</p>
+      <p>Ship to: ${addr.firstName} ${addr.lastName}</p>
+      <p>${addr.address}, ${addr.city}, ${addr.postal}, ${addr.country}</p>
+      <p>Payment: ${checkoutData.payment.toUpperCase()}</p>
+    `;
+
+    // Clear cart
+    saveCart([]);
+    updateBadge();
+
+    currentStep = 4;
+    updateSteps();
+    renderCheckoutPanel();
+  }, 2000);
+});
+
+document.getElementById('successContinue').addEventListener('click', closeCheckout);
+
+// Init
+updateBadge();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+{
+  "collections": [
+    {
+      "id": "daily-essentials",
+      "name": "Daily Essentials",
+      "tagline": "Everyday elegance, effortless charm",
+      "items": [
+        {
+          "id": "de-001",
+          "name": "Jade Bangle Bracelet",
+          "price": 45,
+          "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",
+          "material": "Nephrite Jade + Sterling Silver",
+          "certificate": "IGI Certified"
+        },
+        {
+          "id": "de-002",
+          "name": "Pearl Drop Earrings",
+          "price": 38,
+          "image": "https://images.unsplash.com/photo-1611652022419-a9419f0d6d3e?w=600&q=80",
+          "material": "Freshwater Pearl + 14K Gold",
+          "certificate": "GIA Certified"
+        },
+        {
+          "id": "de-003",
+          "name": "Lotus Charm Necklace",
+          "price": 35,
+          "image": "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80",
+          "material": "18K Gold-Fill",
+          "certificate": "None"
+        },
+        {
+          "id": "de-004",
+          "name": "Dragon Gate Ring",
+          "price": 55,
+          "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80",
+          "material": "Brass + 18K Gold Plating",
+          "certificate": "None"
+        }
+      ]
+    },
+    {
+      "id": "statement-edit",
+      "name": "Statement Edit",
+      "tagline": "Bold designs for unforgettable moments",
+      "items": [
+        {
+          "id": "se-001",
+          "name": "Phoenix Feather Brooch",
+          "price": 78,
+          "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80",
+          "material": "18K Gold + Cloisonné Enamel",
+          "certificate": "IGI Certified"
+        },
+        {
+          "id": "se-002",
+          "name": "Dragon Scale Cuff",
+          "price": 95,
+          "image": "https://images.unsplash.com/photo-1611652022419-a9419f0d6d3e?w=600&q=80",
+          "material": "Sterling Silver + Oxidized Finish",
+          "certificate": "None"
+        },
+        {
+          "id": "se-003",
+          "name": "Imperial Court Earrings",
+          "price": 68,
+          "image": "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80",
+          "material": "24K Gold Plate + Cubic Zirconia",
+          "certificate": "None"
+        },
+        {
+          "id": "se-004",
+          "name": "Cloud Gate Pendant",
+          "price": 120,
+          "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80",
+          "material": "18K Gold + Burmese Jade",
+          "certificate": "GIA Certified"
+        }
+      ]
+    },
+    {
+      "id": "bespoke",
+      "name": "Bespoke Service",
+      "tagline": "Your vision, our craft",
+      "items": [
+        {
+          "id": "bp-001",
+          "name": "Custom Initials Pendant",
+          "price": 150,
+          "image": "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80",
+          "material": "18K Gold + Gemstone of Choice",
+          "certificate": "Custom Certificate"
+        },
+        {
+          "id": "bp-002",
+          "name": "Heritage Replica Set",
+          "price": 280,
+          "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",
+          "material": "As Original + Modern Safety Updates",
+          "certificate": "Heritage Authenticity Report"
+        },
+        {
+          "id": "bp-003",
+          "name": "Birthstone Collection",
+          "price": 195,
+          "image": "https://images.unsplash.com/photo-1611652022419-a9419f0d6d3e?w=600&q=80",
+          "material": "Your Birthstone + 14K Gold",
+          "certificate": "IGI Certified"
+        },
+        {
+          "id": "bp-004",
+          "name": "Engagement Ring Design",
+          "price": 350,
+          "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80",
+          "material": "Diamond + Platinum or Gold Setting",
+          "certificate": "GIA Diamond Grading Report"
+        }
+      ]
+    }
+  ],
+  "featured": {
+    "id": "lotus-pendant",
+    "name": "Lotus Enamel Pendant with Natural Jade Inlay",
+    "price": 68,
+    "originalPrice": 85,
+    "badge": "Bestseller",
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80",
+    "description": "Inspired by classical Chinese lotus motifs, this pendant features hand-applied cloisonné enamel and a natural jade cabochon. Adjustable 18K gold-filled chain, suitable for everyday wear.",
+    "material": "18K Gold-Fill + Jade",
+    "chainLength": "16\"–20\" Adjustable",
+    "certificate": "IGI Certified",
+    "shipping": "Free worldwide"
+  }
+}

@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Collections — Oriental Treasure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-ivory: #FFFFF0;
+      --color-ivory-warm: #FAF8F5;
+      --color-ink: #1A1A1A;
+      --color-ink-light: #4A4A4A;
+      --color-gold: #C9A84C;
+      --color-gold-light: #E8D5A3;
+      --color-red-subtle: #B85C5A;
+      --color-gray-light: #F5F3EF;
+      --color-gray: #E0DDD8;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --transition-fast: 0.2s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-ivory);
+      color: var(--color-ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,240,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+    .nav__links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-light);
+      transition: color var(--transition-fast);
+    }
+    .nav__links a:hover { color: var(--color-gold); }
+    .nav__links a.active { color: var(--color-ink); }
+
+    /* Page header */
+    .page-header {
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+      background: var(--color-ink);
+      color: var(--color-ivory);
+    }
+    .page-header .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.75rem;
+    }
+    .page-header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .page-header p {
+      font-size: 0.9rem;
+      color: rgba(255,255,240,0.6);
+      max-width: 50ch;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Series nav */
+    .series-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      padding: 0;
+      list-style: none;
+      border-bottom: 1px solid var(--color-gray);
+      background: var(--color-ivory);
+      position: sticky;
+      top: 65px;
+      z-index: 90;
+    }
+    .series-nav a {
+      display: block;
+      padding: 1rem 2rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-light);
+      border-bottom: 2px solid transparent;
+      transition: all var(--transition-fast);
+    }
+    .series-nav a:hover { color: var(--color-gold); }
+    .series-nav a.active {
+      color: var(--color-ink);
+      border-bottom-color: var(--color-gold);
+    }
+
+    /* Series section */
+    .series {
+      padding: 4rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .series + .series {
+      border-top: 1px solid var(--color-gray-light);
+    }
+
+    .series__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .series__header .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.5rem;
+    }
+    .series__header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      margin-bottom: 0.5rem;
+    }
+    .series__header p {
+      font-size: 0.9rem;
+      color: var(--color-ink-light);
+      max-width: 40ch;
+      margin: 0 auto;
+    }
+
+    /* Product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 3rem 2rem;
+    }
+
+    /* Product card */
+    .product-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card__image-wrap {
+      position: relative;
+      overflow: hidden;
+      background: var(--color-gray-light);
+      margin-bottom: 1.25rem;
+    }
+    .product-card__image-wrap img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .product-card:hover .product-card__image-wrap img {
+      transform: scale(1.03);
+    }
+    .product-card__badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--color-red-subtle);
+      color: white;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.6rem;
+    }
+
+    .product-card__series {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.4rem;
+    }
+    .product-card__name {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+    .product-card__price {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--color-gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .product-card__divider {
+      width: 2rem;
+      height: 1px;
+      background: var(--color-gray);
+      margin-bottom: 0.75rem;
+    }
+
+    .product-card__desc {
+      font-size: 0.82rem;
+      color: var(--color-ink-light);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-card__meta {
+      list-style: none;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .product-card__meta li {
+      font-size: 0.72rem;
+      color: var(--color-ink-light);
+    }
+    .product-card__meta strong {
+      color: var(--color-ink);
+      font-weight: 500;
+    }
+
+    .product-card__care {
+      font-size: 0.68rem;
+      color: var(--color-ink-light);
+      font-style: italic;
+      margin-bottom: 1rem;
+      padding: 0.6rem 0.75rem;
+      border-left: 2px solid var(--color-gold);
+      background: rgba(201,168,76,0.04);
+      line-height: 1.5;
+    }
+
+    .product-card__actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: auto;
+    }
+    .product-card__btn {
+      flex: 1;
+      padding: 0.75rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.2s;
+    }
+    .product-card__btn--primary {
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      border: none;
+    }
+    .product-card__btn--primary:hover { background: var(--color-gold); }
+    .product-card__btn--ghost {
+      background: transparent;
+      color: var(--color-ink-light);
+      border: 1px solid var(--color-gray);
+    }
+    .product-card__btn--ghost:hover { border-color: var(--color-ink); color: var(--color-ink); }
+
+    /* Footer */
+    .footer {
+      background: var(--color-ivory-warm);
+      border-top: 1px solid var(--color-gray);
+      padding: 3rem 2rem;
+      margin-top: 4rem;
+    }
+    .footer__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer__brand { font-family: var(--font-serif); font-size: 1.1rem; }
+    .footer__copy { font-size: 0.72rem; color: var(--color-ink-light); }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      padding: 0.9rem 1.75rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      z-index: 500;
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      white-space: nowrap;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .series-nav a { padding: 0.75rem 1rem; font-size: 0.7rem; }
+      .product-grid { grid-template-columns: 1fr; }
+      .footer__inner { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="主页设计.html" class="nav__logo">Oriental Treasure</a>
+    <ul class="nav__links">
+      <li><a href="主页设计.html">Home</a></li>
+      <li><a href="products.html" class="active">Collections</a></li>
+      <li><a href="#">Our Story</a></li>
+      <li><a href="#">Bespoke</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <p class="section-label">Curated for You</p>
+  <h1>Our Collections</h1>
+  <p>From everyday elegance to statement pieces — each one handcrafted by artisans who've spent decades mastering their technique.</p>
+</div>
+
+<ul class="series-nav">
+  <li><a href="#daily" class="active">Daily Essentials · $35–$65</a></li>
+  <li><a href="#statement">Statement Edit · $65–$150</a></li>
+  <li><a href="#bespoke">Bespoke Service · $150+</a></li>
+</ul>
+
+<!-- DAILY ESSENTIALS -->
+<section class="series" id="daily">
+  <div class="series__header">
+    <p class="section-label">Daily Essentials</p>
+    <h2>Everyday Elegance</h2>
+    <p>Pieces you'll reach for every day — refined, comfortable, and crafted to last.</p>
+  </div>
+
+  <div class="product-grid">
+
+    <!-- DE001 -->
+    <article class="product-card" id="de-001">
+      <div class="product-card__image-wrap">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=80" alt="Jade Bangle Bracelet">
+      </div>
+      <p class="product-card__series">Daily Essentials</p>
+      <h3 class="product-card__name">Handcrafted Jade Bangle Bracelet</h3>
+      <p class="product-card__price">$45.00</p>
+      <div class="product-card__divider"></div>
+      <p class="product-card__desc">Genuine nephrite jade sourced from Nanyang — China's jade capital. Selected for rich green color and smooth translucency, then hand-polished to a glass-like finish. Adjustable 18K gold-fill clasp fits wrists 5.5"–7.5".</p>
+      <ul class="product-card__meta">
+        <li><strong>Material:</strong> Genuine nephrite jade, 18K gold-fill clasp</li>
+        <li><strong>Size:</strong> Inner diameter 60mm, adjustable</li>
+        <li><strong>Certification:</strong> Each piece inspected</li>
+        <li><strong>Shipping:</strong> Free worldwide</li>
+      </ul>
+      <p class="product-card__care">Care: Avoid perfume and ultrasonic cleaners. Wipe with a soft cloth after wearing.</p>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--primary add-to-cart" data-id="de-001" data-name="Handcrafted Jade Bangle Bracelet" data-price="45" data-image="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80">Add to Cart</button>
+        <button class="product-card__btn product-card__btn--ghost">Details</button>
+      </div>
+    </article>
+
+    <!-- DE002 -->
+    <article class="product-card" id="de-002">
+      <div class="product-card__image-wrap">
+        <img src="https://images.unsplash.com/photo-1611652022419-a9419f0d6d3e?w=800&q=80" alt="Pearl Drop Earrings">
+      </div>
+      <p class="product-card__series">Daily Essentials</p>
+      <h3 class="product-card__name">Freshwater Pearl Drop Earrings</h3>
+      <p class="product-card__price">$38.00</p>
+      <div class="product-card__divider"></div>
+      <p class="product-card__desc">AAA-grade freshwater pearls selected for roundness and luster. Hand-assembled on 14K gold-filled hooks. 3.2cm long — the perfect statement-to-everyday ratio. The kind of earrings that make strangers ask where you got them.</p>
+      <ul class="product-card__meta">
+        <li><strong>Material:</strong> AAA freshwater pearls (8–9mm), 14K gold-fill</li>
+        <li><strong>Length:</strong> 3.2cm</li>
+        <li><strong>Certification:</strong> GIA certified</li>
+        <li><strong>Perfect for:</strong> Daily wear, office, wedding guest, anniversary</li>
+      </ul>
+      <p class="product-card__care">Care: Put on last when dressing, remove first when undressing. Store separately to avoid scratching.</p>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--primary add-to-cart" data-id="de-002" data-name="Freshwater Pearl Drop Earrings" data-price="38" data-image="https://images.unsplash.com/photo-1611652022419-a9419f0d6d3e?w=600&q=80">Add to Cart</button>
+        <button class="product-card__btn product-card__btn--ghost">Details</button>
+      </div>
+    </article>
+
+    <!-- DE003 -->
+    <article class="product-card" id="de-003">
+      <div class="product-card__image-wrap">
+        <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=800&q=80" alt="Lotus Charm Necklace">
+      </div>
+      <p class="product-card__series">Daily Essentials</p>
+      <h3 class="product-card__name">Lotus Pendant Necklace</h3>
+      <p class="product-card__price">$35.00</p>
+      <div class="product-card__divider"></div>
+      <p class="product-card__desc">In Chinese culture, the lotus represents purity rising from muddy water. Cast from 18K gold-fill and hand-polished to a warm, luminous finish. Adjustable 16"–20" chain. Wear it alone or layer it — either way it feels intentional.</p>
+      <ul class="product-card__meta">
+        <li><strong>Material:</strong> 18K gold-fill (14x thicker than gold-plated)</li>
+        <li><strong>Pendant:</strong> 1.8cm wide</li>
+        <li><strong>Chain:</strong> 16"–20" adjustable</li>
+        <li><strong>Certification:</strong> Lead-free, nickel-free, hypoallergenic</li>
+      </ul>
+      <p class="product-card__care">Care: Remove before swimming, showering, or exercising. Store in the provided pouch.</p>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--primary add-to-cart" data-id="de-003" data-name="Lotus Pendant Necklace" data-price="35" data-image="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80">Add to Cart</button>
+        <button class="product-card__btn product-card__btn--ghost">Details</button>
+      </div>
+    </article>
+
+    <!-- DE004 -->
+    <article class="product-card" id="de-004">
+      <div class="product-card__image-wrap">
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80" alt="Dragon Gate Ring">
+      </div>
+      <p class="product-card__series">Daily Essentials</p>
+      <h3 class="product-card__name">Dragon Gate Ring</h3>
+      <p class="product-card__price">$55.00</p>
+      <div class="product-card__divider"></div>
+      <p class="product-card__desc">The Dragon Gate — in Chinese mythology, only the most determined koi could leap over it and become a dragon. This ring brings that symbol of ambition and transformation to your hand. Adjustable band fits sizes 5–9. One piece, one story.</p>
+      <ul class="product-card__meta">
+        <li><strong>Material:</strong> 18K gold-plated brass</li>
+        <li><strong>Motif:</strong> Dragon Gate, 1.2cm wide</li>
+        <li><strong>Fit:</strong> Adjustable, sizes 5–9</li>
+        <li><strong>Weight:</strong> 3.2g</li>
+      </ul>
+      <p class="product-card__care">Care: Avoid water and perfume. Polish with a jewelry cloth to maintain shine.</p>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--primary add-to-cart" data-id="de-004" data-name="Dragon Gate Ring" data-price="55" data-image="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80">Add to Cart</button>
+        <button class="product-card__btn product-card__btn--ghost">Details</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- STATEMENT EDIT -->
+<section class="series" id="statement">
+  <div class="series__header">
+    <p class="section-label">Statement Edit</p>
+    <h2>Bold Designs</h2>
+    <p>Pieces for moments that deserve something extraordinary.</p>
+  </div>
+
+  <div class="product-grid">
+
+    <!-- SE001 -->
+    <article class="product-card" id="se-001">
+      <div class="product-card__image-wrap">
+        <span class="product-card__badge">Artisan Craft</span>
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80" alt="Phoenix Feather Brooch">
+      </div>
+      <p class="product-card__series">Statement Edit</p>
+      <h3 class="product-card__name">Phoenix Feather Brooch</h3>
+      <p class="product-card__price">$78.00</p>
+      <div class="product-card__divider"></div>
+      <p class="product-card__desc">The phoenix (Fenghuang) — China's most revered bird. Represents grace, power, and the fire that creates new beginnings. Crafted using cloisonné enamel: fine gold wires soldered, colored enamel applied by hand, fired at 800°C. Two artisan days. One extraordinary brooch.</p>
+      <ul class="product-card__meta">
+        <li><strong>Technique:</strong> Cloisonné enamel, 18K gold wires</li>
+        <li><strong>Size:</strong> 5.5cm × 2.5cm</li>
+        <li><strong>Certification:</strong> IGI certified materials</li>
+        <li><strong>Closure:</strong> Pin-back, secure grip</li>
+      </ul>
+      <p class="product-card__care">Care: Do not wet. Store flat to preserve the pin mechanism.</p>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--primary add-to-cart" data-id="se-001" data-name="Phoenix Feather Brooch" data-price="78" data-image="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80">Add to Cart</button>
+        <button class="product-card__btn product-card__btn--ghost">Details</button>
+      </div>
+    </article>
+
+    <!-- SE002 -->
+    <article class="product-card" id="se-002">
+      <div class="product-card__image-wrap">
+        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&q=80" alt="Dragon Scale Cuff">
+      </div>
+      <p class="product-card__series">Statement Edit</p>
+      <h3 class="product-card__name">Dragon Scale Cuff Bracelet</h3>
+      <p class="product-card__price">$95.00</p>
+      <div class="product-card__divider"></div>
+      <p class="product-card__desc">The dragon — keeper of rivers, rain, and ocean depths. Its scales: protection, power, wisdom. Hand-oxidized sterling silver with dragon scale texture that's hand-pressed — no two cuffs are exactly alike. Wide enough to statement, light enough to wear all day.</p>
+      <ul class="product-card__meta">
+        <li><strong>Material:</strong> Oxidized sterling silver</li>
+        <li><strong>Width:</strong> 3cm</li>
+        <li><strong>Fit:</strong> 5.5"–7.5" wrists</li>
+        <li><strong>Weight:</strong> 28g</li>
+      </ul>
+      <p class="product-card__care">Care: Avoid water and harsh chemicals. Use a silver polishing cloth to maintain the patina.</p>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--primary add-to-cart" data-id="se-002" data-name="Dragon Scale Cuff Bracelet" data-price="95" data-image="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80">Add to Cart</button>
+        <button class="product-card__btn product-card__btn--ghost">Details</button>
+      </div>
+    </article>
+
+    <!-- SE003 -->
+    <article class="product-card" id="se-003">
+      <div class="product-card__image-wrap">
+        <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=800&q=80" alt="Imperial Court Earrings">
+      </div>
+      <p class="product-card__series">Statement Edit</p>
+      <h3 class="product-card__name">Imperial Court Drop Earrings</h3>
+      <p class="product-card__price">$68.00</p>
+      <div class="product-card__divider"></div>
+      <p class="product-card__desc">For a thousand years, only women of the imperial court wore earrings like these. We've reimagined palace earrings for today: 24K gold-plated brass with handset cubic zirconia. 4.5cm long — dramatic without being heavy. Wear them when you want to walk in like you own the room.</p>
+      <ul class="product-card__meta">
+        <li><strong>Material:</strong> 24K gold-plated brass, handset cubic zirconia</li>
+        <li><strong>Length:</strong> 4.5cm</li>
+        <li><strong>Weight:</strong> 6g per earring</li>
+        <li><strong>Certification:</strong> Hypoallergenic (nickel-free)</li>
+      </ul>
+      <p class="product-card__care">Care: Avoid water, perfume, and sweat. Store in the provided pouch.</p>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--primary add-to-cart" data-id="se-003" data-name="Imperial Court Drop Earrings" data-price="68" data-image="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80">Add to Cart</button>
+        <button class="product-card__btn product-card__btn--ghost">Details</button>
+      </div>
+    </article>
+
+    <!-- SE004 -->
+    <article class="product-card" id="se-004">
+      <div class="product-card__image-wrap">
+        <span class="product-card__badge">Limited</span>
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80" alt="Cloud Gate Pendant">
+      </div>
+      <p class="product-card__series">Statement Edit</p>
+      <h3 class="product-card__name">Cloud Gate Jade Pendant</h3>
+      <p class="product-card__price">$120.00</p>
+      <div class="product-card__divider"></div>
+      <p class="product-card__desc">Cloud Gate — the name of Anish Kapoor's famous sculpture that drew millions to stand beneath it. And a Chinese concept: gateways, transitions, moments that change everything. Hand-carved from a single piece of Burmese jade, bezel-set in 18K gold-fill. This isn't a piece you buy on impulse.</p>
+      <ul class="product-card__meta">
+        <li><strong>Stone:</strong> Hand-carved Burmese jade (nephrite)</li>
+        <li><strong>Setting:</strong> 18K gold-fill bezel</li>
+        <li><strong>Size:</strong> 2.5cm × 1.8cm</li>
+        <li><strong>Chain:</strong> 18" 18K gold-fill</li>
+        <li><strong>Certification:</strong> GIA certified</li>
+      </ul>
+      <p class="product-card__care">Care: Jade is durable — avoid dropping. Clean with warm water and a soft brush.</p>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--primary add-to-cart" data-id="se-004" data-name="Cloud Gate Jade Pendant" data-price="120" data-image="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80">Add to Cart</button>
+        <button class="product-card__btn product-card__btn--ghost">Details</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- BESPOKE -->
+<section class="series" id="bespoke">
+  <div class="series__header">
+    <p class="section-label">Bespoke Service</p>
+    <h2>Made for You</h2>
+    <p>Work directly with our artisans to create something that exists nowhere else.</p>
+  </div>
+
+  <div class="product-grid">
+
+    <!-- BP001 -->
+    <article class="product-card" id="bp-001">
+      <div class="product-card__image-wrap">
+        <span class="product-card__badge">Personalized</span>
+        <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=800&q=80" alt="Custom Initials Pendant">
+      </div>
+      <p class="product-card__series">Bespoke Service</p>
+      <h3 class="product-card__name">Custom Initials Pendant</h3>
+      <p class="product-card__price">From $150.00</p>
+      <div class="product-card__divider"></div>
+      <p class="product-card__desc">The most personal piece of jewelry is one that says exactly what you want it to say. Work directly with our artisans to create a pendant with your initials — or a meaningful word, date, or symbol — in 18K gold-fill. Choose your gemstone: sapphire, ruby, emerald, or diamond center.</p>
+      <ul class="product-card__meta">
+        <li><strong>Material:</strong> 18K gold-fill</li>
+        <li><strong>Customization:</strong> Initials or word (up to 3 characters)</li>
+        <li><strong>Stone:</strong> Your choice of gemstone</li>
+        <li><strong>Chain:</strong> 16"–20" adjustable</li>
+        <li><strong>Lead time:</strong> 5–7 business days</li>
+      </ul>
+      <p class="product-card__care">Care: Remove before swimming and exercise. Store in the provided pouch.</p>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--primary" onclick="alert('For bespoke orders, please contact us directly at hello@orientaltreasure.com')">Enquire Now</button>
+        <button class="product-card__btn product-card__btn--ghost">Learn More</button>
+      </div>
+    </article>
+
+    <!-- BP002 -->
+    <article class="product-card" id="bp-002">
+      <div class="product-card__image-wrap">
+        <span class="product-card__badge">Museum Quality</span>
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=80" alt="Heritage Replica Collection">
+      </div>
+      <p class="product-card__series">Bespoke Service</p>
+      <h3 class="product-card__name">Heritage Replica Collection</h3>
+      <p class="product-card__price">From $280.00</p>
+      <div class="product-card__divider"></div>
+      <p class="product-card__desc">You saw it in a museum. You thought about it for weeks. Now you can take it home. Our Heritage Replica program recreates antique Chinese jewelry from historical documentation — using the same techniques as the originals, updated with modern safety standards. Not costume jewelry. Museum-quality craftsmanship for personal ownership.</p>
+      <ul class="product-card__meta">
+        <li><strong>Technique:</strong> Period-appropriate (cloisonné, filigree, jade)</li>
+        <li><strong>Documentation:</strong> Historical design sources</li>
+        <li><strong>Certification:</strong> Heritage authenticity report included</li>
+        <li><strong>Lead time:</strong> 4–8 weeks</li>
+      </ul>
+      <p class="product-card__care">Care: Varies by technique. Detailed care guide provided with each piece.</p>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--primary" onclick="alert('For bespoke orders, please contact us directly at hello@orientaltreasure.com')">Enquire Now</button>
+        <button class="product-card__btn product-card__btn--ghost">Learn More</button>
+      </div>
+    </article>
+
+    <!-- BP003 -->
+    <article class="product-card" id="bp-003">
+      <div class="product-card__image-wrap">
+        <span class="product-card__badge">Personalized</span>
+        <img src="https://images.unsplash.com/photo-1611652022419-a9419f0d6d3e?w=800&q=80" alt="Birthstone Collection">
+      </div>
+      <p class="product-card__series">Bespoke Service</p>
+      <h3 class="product-card__name">Birthstone + Zodiac Collection</h3>
+      <p class="product-card__price">From $195.00</p>
+      <div class="product-card__divider"></div>
+      <p class="product-card__desc">Why choose one tradition when you can have both? Our Birthstone Collection combines Western birthstones (GIA certified) with Chinese zodiac jade in a single, beautifully designed piece in 14K gold. A deeply personal gift — for yourself or someone whose identity deserves to be reflected in what they wear.</p>
+      <ul class="product-card__meta">
+        <li><strong>Western stone:</strong> Your birth month gemstone, GIA certified</li>
+        <li><strong>Zodiac jade:</strong> Nephrite, hand-selected</li>
+        <li><strong>Setting:</strong> 14K gold</li>
+        <li><strong>Styles:</strong> Pendant or ring</li>
+      </ul>
+      <p class="product-card__care">Care: Avoid harsh chemicals. Store separately. Jade is durable — clean with warm water and a soft brush.</p>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--primary" onclick="alert('For bespoke orders, please contact us directly at hello@orientaltreasure.com')">Enquire Now</button>
+        <button class="product-card__btn product-card__btn--ghost">Learn More</button>
+      </div>
+    </article>
+
+    <!-- BP004 -->
+    <article class="product-card" id="bp-004">
+      <div class="product-card__image-wrap">
+        <span class="product-card__badge">Premium Service</span>
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80" alt="Custom Engagement Ring">
+      </div>
+      <p class="product-card__series">Bespoke Service</p>
+      <h3 class="product-card__name">Custom Engagement Ring Design</h3>
+      <p class="product-card__price">From $350.00</p>
+      <div class="product-card__divider"></div>
+      <p class="product-card__desc">The ring you'll wear the longest should be exactly right. Work with a personal designer to create something unique — choose stone, setting, metal, and whether to incorporate Chinese design elements (lotus band, dragon-scale engraving, cloisonné accent) or keep it purely Western. Three design rounds included. You approve every sketch before production begins.</p>
+      <ul class="product-card__meta">
+        <li><strong>Diamond:</strong> GIA certified (D–J, IF–VS2)</li>
+        <li><strong>Settings:</strong> Platinum, 18K white/yellow/rose gold</li>
+        <li><strong>Design:</strong> Three rounds, you approve each</li>
+        <li><strong>Lead time:</strong> 4–6 weeks after approval</li>
+        <li><strong>Includes:</strong> GIA Diamond Grading Report</li>
+      </ul>
+      <p class="product-card__care">Care: Platinum and gold are durable but benefit from annual professional cleaning.</p>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--primary" onclick="alert('Book your free 30-minute consultation at hello@orientaltreasure.com')">Book Consultation</button>
+        <button class="product-card__btn product-card__btn--ghost">Learn More</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__brand">Oriental Treasure</span>
+    <span class="footer__copy">© 2026 Oriental Treasure. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast">✓ Added to cart</div>
+
+<script>
+// Series nav smooth scroll + active state
+document.querySelectorAll('.series-nav a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelectorAll('.series-nav a').forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Intersection observer for active nav state
+const sections = document.querySelectorAll('.series');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.series-nav a').forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id);
+      });
+    }
+  });
+}, { threshold: 0.2 });
+sections.forEach(s => observer.observe(s));
+
+// Add to cart
+const CART_KEY = 'ot_cart';
+function getCart() {
+  try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch { return []; }
+}
+function saveCart(items) { localStorage.setItem(CART_KEY, JSON.stringify(items)); }
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+document.querySelectorAll('.add-to-cart').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const { id, name, price, image } = btn.dataset;
+    const items = getCart();
+    const existing = items.find(i => i.id === id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      items.push({ id, name, price: Number(price), image, quantity: 1 });
+    }
+    saveCart(items);
+    btn.textContent = '✓ Added';
+    btn.style.background = 'var(--color-gold)';
+    setTimeout(() => {
+      btn.textContent = 'Add to Cart';
+      btn.style.background = '';
+    }, 1500);
+    showToast(`✓ ${name} added to cart`);
+  });
+});
+</script>
+
+</body>
+</html>
