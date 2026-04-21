@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found — Aurora Oriens</title>
-  <meta name="description" content="The page you're looking for doesn't exist. Explore our collections or return home.">
+  <meta name="description" content="The page you're looking for doesn't exist.">
   <link rel="canonical" href="https://www.auroraoriens.com/404.html">
   <meta property="og:title" content="Page Not Found — Aurora Oriens">
-  <meta property="og:description" content="The page you're looking for doesn't exist. Explore our collections or return home.">
+  <meta property="og:description" content="The page you're looking for doesn't exist.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=80">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -21,7 +20,6 @@
       --color-ink-light: #4A4A4A;
       --color-gold: #C9A84C;
       --color-gold-light: #E8D5A3;
-      --color-red-subtle: #B85C5A;
       --color-gray-light: #F5F3EF;
       --color-gray: #E0DDD8;
       --font-serif: 'Playfair Display', Georgia, serif;
@@ -30,32 +28,33 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { font-size: 16px; }
 
     body {
       font-family: var(--font-sans);
-      background: var(--color-ivory);
-      color: var(--color-ink);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      background: var(--color-ink);
+      color: var(--color-ivory);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      -webkit-font-smoothing: antialiased;
     }
 
     a { text-decoration: none; color: inherit; }
 
-    /* Nav */
+    /* Nav — sticky */
     .nav {
-      background: rgba(255,255,240,0.95);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(26,26,26,0.96);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      padding: 1.25rem 2rem;
+      border-bottom: 1px solid rgba(255,255,240,0.1);
     }
     .nav__inner {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 1.25rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -65,6 +64,7 @@
       font-size: 1.35rem;
       font-weight: 600;
       letter-spacing: 0.08em;
+      color: var(--color-ivory);
     }
     .nav__links {
       display: flex;
@@ -72,113 +72,86 @@
       list-style: none;
     }
     .nav__links a {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--color-ink-light);
+      color: rgba(255,255,240,0.5);
       transition: color var(--transition-fast);
     }
     .nav__links a:hover { color: var(--color-gold); }
 
-    /* 404 content */
+    /* 404 content — black bg, brand quote */
     .not-found {
       flex: 1;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 5rem 2rem;
     }
-    .not-found__inner {
-      max-width: 480px;
-    }
-    .not-found__icon {
-      font-size: 4rem;
+    .not-found__eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
       color: var(--color-gold);
-      margin-bottom: 2rem;
-      display: block;
-    }
-    .not-found__code {
-      font-family: var(--font-serif);
-      font-size: 6rem;
-      font-weight: 400;
-      color: var(--color-gray);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-    }
-    .not-found__title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      margin-bottom: 1rem;
-    }
-    .not-found__text {
-      font-size: 0.9rem;
-      color: var(--color-ink-light);
-      line-height: 1.7;
       margin-bottom: 2.5rem;
     }
-    .not-found__actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn--primary {
-      padding: 0.85rem 2rem;
-      background: var(--color-ink);
+    .not-found__quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 5vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      max-width: 18ch;
       color: var(--color-ivory);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      font-family: var(--font-sans);
-      transition: background 0.2s;
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
     }
-    .btn--primary:hover { background: var(--color-gold); }
-    .btn--ghost {
-      padding: 0.85rem 2rem;
+    .not-found__sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,240,0.4);
+      margin-bottom: 3rem;
+      letter-spacing: 0.04em;
+    }
+
+    .btn--primary {
+      padding: 0.85rem 2.5rem;
       background: transparent;
-      color: var(--color-ink);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
+      color: var(--color-ivory);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      border: 1px solid var(--color-gray);
+      border: 1px solid rgba(255,255,240,0.3);
       cursor: pointer;
       font-family: var(--font-sans);
       transition: all 0.2s;
-      min-height: 44px;
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
     }
-    .btn--ghost:hover { border-color: var(--color-ink); }
+    .btn--primary:hover {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+    }
 
     /* Footer */
     .footer {
-      background: var(--color-ivory-warm);
-      border-top: 1px solid var(--color-gray);
+      background: transparent;
+      border-top: 1px solid rgba(255,255,240,0.08);
       padding: 3rem 2rem;
     }
     .footer__inner {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .footer__brand { font-family: var(--font-serif); font-size: 1.1rem; }
-    .footer__copy { font-size: 0.72rem; color: var(--color-ink-light); }
+    .footer__brand { font-family: var(--font-serif); font-size: 1.1rem; color: rgba(255,255,240,0.6); }
+    .footer__copy { font-size: 0.72rem; color: rgba(255,255,240,0.3); }
 
     @media (max-width: 768px) {
       .nav__links { display: none; }
-      .not-found__actions { flex-direction: column; }
-      .btn--primary, .btn--ghost { width: 100%; }
       .footer__inner { flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
@@ -198,16 +171,10 @@
 </nav>
 
 <section class="not-found">
-  <div class="not-found__inner">
-    <span class="not-found__icon">✦</span>
-    <div class="not-found__code">404</div>
-    <h1 class="not-found__title">This page has wandered off</h1>
-    <p class="not-found__text">The page you're looking for doesn't seem to exist — or perhaps it's been moved. Explore our collections or return home while it's still there.</p>
-    <div class="not-found__actions">
-      <a href="主页设计.html" class="btn--primary">Return Home</a>
-      <a href="products.html" class="btn--ghost">Browse Collections</a>
-    </div>
-  </div>
+  <p class="not-found__eyebrow">404 · Page not found</p>
+  <h1 class="not-found__quote">Some paths<br>are meant to wander</h1>
+  <p class="not-found__sub">The page you're looking for doesn't exist or has been moved.</p>
+  <a href="主页设计.html" class="btn--primary">Return Home ✦</a>
 </section>
 
 <footer class="footer">

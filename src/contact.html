@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us — Aurora Oriens</title>
-  <meta name="description" content="Get in touch with Aurora Oriens. Questions about sizing, care, bespoke orders, or shipping? We're here to help.">
+  <meta name="description" content="Questions about sizing, care, bespoke orders, or shipping? Browse our FAQ or send us a message.">
   <link rel="canonical" href="https://www.auroraoriens.com/contact.html">
   <meta property="og:title" content="Contact Us — Aurora Oriens">
   <meta property="og:description" content="Questions about our jewelry, orders, or bespoke commissions? Reach out — we'd love to hear from you.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=80">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&q=80">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -30,7 +30,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { font-size: 16px; scroll-behavior: smooth; }
 
     body {
@@ -44,17 +43,17 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* Nav */
+    /* Nav — sticky */
     .nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,240,0.95);
+      background: rgba(255,255,240,0.96);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(0,0,0,0.06);
     }
     .nav__inner {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 1.25rem 2rem;
       display: flex;
@@ -73,7 +72,7 @@
       list-style: none;
     }
     .nav__links a {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--color-ink-light);
@@ -82,7 +81,7 @@
     .nav__links a:hover { color: var(--color-gold); }
     .nav__links a.active { color: var(--color-ink); }
 
-    /* Page header */
+    /* Header */
     .page-header {
       background: var(--color-ink);
       color: var(--color-ivory);
@@ -90,48 +89,101 @@
       text-align: center;
     }
     .page-header .section-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--color-gold);
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
     .page-header h1 {
       font-family: var(--font-serif);
       font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 500;
-      margin-bottom: 0.75rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
     }
     .page-header p {
       font-size: 0.9rem;
-      color: rgba(255,255,240,0.6);
-      max-width: 45ch;
+      color: rgba(255,255,240,0.55);
+      max-width: 40ch;
       margin: 0 auto;
       line-height: 1.7;
     }
 
-    /* Contact layout */
-    .contact-section {
-      max-width: 1100px;
+    /* FAQ */
+    .faq-section {
+      padding: 6rem 2rem;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 5rem 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
     }
-
-    /* Form */
-    .contact-form__title {
+    .faq__header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .faq__header h2 {
       font-family: var(--font-serif);
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
     }
-    .contact-form__sub {
+    .faq__item {
+      border-bottom: 1px solid var(--color-gray);
+      cursor: pointer;
+    }
+    .faq__item:first-of-type { border-top: 1px solid var(--color-gray); }
+    .faq__question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+      gap: 1rem;
+    }
+    .faq__question-text {
+      font-size: 0.9rem;
+      font-weight: 500;
+      flex: 1;
+    }
+    .faq__toggle {
+      font-size: 1.1rem;
+      color: var(--color-gold);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+    .faq__item.open .faq__toggle { transform: rotate(45deg); }
+    .faq__answer {
       font-size: 0.85rem;
       color: var(--color-ink-light);
-      margin-bottom: 2rem;
-      line-height: 1.6;
+      line-height: 1.8;
+      padding-bottom: 1.25rem;
+      display: none;
+    }
+    .faq__item.open .faq__answer { display: block; }
+
+    /* Divider */
+    .section-divider {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .section-divider hr {
+      border: none;
+      border-top: 1px solid var(--color-gray);
+    }
+
+    /* Contact form */
+    .contact-section {
+      padding: 5rem 2rem 7rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .contact-section__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .contact-section__sub {
+      font-size: 0.85rem;
+      color: var(--color-ink-light);
+      text-align: center;
+      margin-bottom: 2.5rem;
     }
     .form-group {
       display: flex;
@@ -140,8 +192,8 @@
       margin-bottom: 1.25rem;
     }
     .form-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--color-ink-light);
     }
@@ -156,40 +208,40 @@
       -webkit-appearance: none;
       border-radius: 0;
     }
-    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-textarea { resize: vertical; min-height: 130px; }
     .form-input:focus, .form-textarea:focus {
       outline: none;
       border-color: var(--color-gold);
     }
-    .form-input.error, .form-textarea.error {
-      border-color: var(--color-red-subtle);
-    }
+    .form-input.error, .form-textarea.error { border-color: var(--color-red-subtle); }
     .form-error { font-size: 0.68rem; color: var(--color-red-subtle); min-height: 0.9rem; }
     .form-submit {
-      padding: 0.9rem 2rem;
+      width: 100%;
+      padding: 0.9rem;
       background: var(--color-ink);
       color: var(--color-ivory);
       border: none;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       cursor: pointer;
       font-family: var(--font-sans);
       transition: background 0.2s;
-      min-height: 44px;
-      display: inline-flex;
+      min-height: 48px;
+      display: flex;
       align-items: center;
       justify-content: center;
     }
     .form-submit:hover { background: var(--color-gold); }
+
     .form-success {
       display: none;
-      padding: 2rem;
-      background: var(--color-gray-light);
       text-align: center;
+      padding: 3rem 2rem;
+      border: 1px solid var(--color-gray);
     }
     .form-success.show { display: block; }
-    .form-success__icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .form-success__icon { font-size: 2.5rem; margin-bottom: 0.75rem; color: var(--color-gold); }
     .form-success__title {
       font-family: var(--font-serif);
       font-size: 1.2rem;
@@ -197,105 +249,36 @@
     }
     .form-success__text { font-size: 0.85rem; color: var(--color-ink-light); }
 
-    /* Info */
-    .contact-info { }
-    .contact-info__title {
-      font-family: var(--font-serif);
-      font-size: 1.3rem;
-      margin-bottom: 2rem;
-    }
-    .contact-info__item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-    }
-    .contact-info__icon { font-size: 1.2rem; margin-top: 0.1rem; }
-    .contact-info__label {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-gold);
-      margin-bottom: 0.2rem;
-    }
-    .contact-info__value { font-size: 0.88rem; color: var(--color-ink-light); }
-    .contact-info__value a { color: var(--color-ink); border-bottom: 1px solid var(--color-gray); transition: color 0.2s; }
-    .contact-info__value a:hover { color: var(--color-gold); border-color: var(--color-gold); }
-
-    /* Divider */
-    .contact-divider {
-      width: 100%;
-      height: 1px;
-      background: var(--color-gray);
-      margin: 1.5rem 0;
-    }
-
-    /* Social */
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .social-link {
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--color-gray);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      color: var(--color-ink-light);
-      transition: all 0.2s;
-    }
-    .social-link:hover { border-color: var(--color-gold); color: var(--color-gold); }
-
-    /* FAQ */
-    .faq {
-      background: var(--color-ivory-warm);
+    /* Contact info strip */
+    .contact-info {
+      background: var(--color-ink);
       padding: 5rem 2rem;
-    }
-    .faq__inner {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .faq__header {
       text-align: center;
-      margin-bottom: 3rem;
+      color: var(--color-ivory);
     }
-    .faq__header .section-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
+    .contact-info__inner { max-width: 600px; margin: 0 auto; }
+    .contact-info__label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--color-gold);
-      margin-bottom: 0.75rem;
-    }
-    .faq__header h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-    }
-    .faq__item {
-      border-bottom: 1px solid var(--color-gray);
-      padding: 1.25rem 0;
-      cursor: pointer;
-    }
-    .faq__item:first-of-type { border-top: 1px solid var(--color-gray); }
-    .faq__question {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.88rem;
-      font-weight: 500;
       margin-bottom: 0.5rem;
     }
-    .faq__toggle { font-size: 1.2rem; color: var(--color-gold); transition: transform 0.2s; }
-    .faq__item.open .faq__toggle { transform: rotate(45deg); }
-    .faq__answer {
-      font-size: 0.82rem;
-      color: var(--color-ink-light);
-      line-height: 1.7;
-      display: none;
+    .contact-info__value {
+      font-size: 1rem;
+      margin-bottom: 2rem;
     }
-    .faq__item.open .faq__answer { display: block; }
+    .contact-info__value a {
+      color: var(--color-ivory);
+      border-bottom: 1px solid rgba(255,255,240,0.3);
+      transition: border-color 0.2s;
+    }
+    .contact-info__value a:hover { border-color: var(--color-gold); }
+    .contact-info__note {
+      font-size: 0.78rem;
+      color: rgba(255,255,240,0.45);
+      line-height: 1.7;
+    }
 
     /* Footer */
     .footer {
@@ -304,7 +287,7 @@
       padding: 3rem 2rem;
     }
     .footer__inner {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -313,10 +296,8 @@
     .footer__brand { font-family: var(--font-serif); font-size: 1.1rem; }
     .footer__copy { font-size: 0.72rem; color: var(--color-ink-light); }
 
-    /* Mobile */
     @media (max-width: 768px) {
       .nav__links { display: none; }
-      .contact-section { grid-template-columns: 1fr; gap: 3rem; }
       .footer__inner { flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
@@ -339,168 +320,127 @@
 <div class="page-header">
   <p class="section-label">Get in Touch</p>
   <h1> We'd Love to Hear From You</h1>
-  <p>Whether you have a question about a piece, need help with your order, or are interested in a bespoke commission — we're here.</p>
+  <p>Whether you have a question about a piece, need help with your order, or are interested in a bespoke commission.</p>
 </div>
 
-<!-- Contact -->
+<!-- FAQ — BEFORE form -->
+<section class="faq-section">
+  <div class="faq__header">
+    <h2>Common Questions</h2>
+  </div>
+
+  <div class="faq__item">
+    <div class="faq__question">
+      <span class="faq__question-text">What materials do you use?</span>
+      <span class="faq__toggle">+</span>
+    </div>
+    <div class="faq__answer">We use 18K gold-fill, 14K gold-fill, genuine freshwater pearls (AAA grade), nephrite jade, sterling silver, and cubic zirconia set in 24K gold-plated brass. All gemstones are GIA or IGI certified. Every material is nickel-free and hypoallergenic.</div>
+  </div>
+
+  <div class="faq__item">
+    <div class="faq__question">
+      <span class="faq__question-text">Do you offer international shipping?</span>
+      <span class="faq__toggle">+</span>
+    </div>
+    <div class="faq__answer">Yes — we ship worldwide via DHL Express with full insurance. All orders over $35 qualify for free shipping. Typical delivery is 7–12 business days.</div>
+  </div>
+
+  <div class="faq__item">
+    <div class="faq__question">
+      <span class="faq__question-text">What is your return policy?</span>
+      <span class="faq__toggle">+</span>
+    </div>
+    <div class="faq__answer">We offer a 30-day hassle-free return policy. Items must be unworn and in original packaging. Bespoke and personalized items are final sale. To initiate a return, email us at hello@auroraoriens.com with your order number.</div>
+  </div>
+
+  <div class="faq__item">
+    <div class="faq__question">
+      <span class="faq__question-text">How do I find my ring size?</span>
+      <span class="faq__toggle">+</span>
+    </div>
+    <div class="faq__answer">Our adjustable rings fit US sizes 5–9. For a precise measurement, we recommend a ring sizing tool or a local jeweler. If you're unsure, contact us — we're happy to help.</div>
+  </div>
+
+  <div class="faq__item">
+    <div class="faq__question">
+      <span class="faq__question-text">Can I customize a piece?</span>
+      <span class="faq__toggle">+</span>
+    </div>
+    <div class="faq__answer">Yes. Our Custom Initials Pendant starts at $150 — choose initials or a meaningful word, your gemstone center, and chain length. For heritage replicas or engagement ring design, email us directly with your concept and we'll respond within 2 business days.</div>
+  </div>
+
+  <div class="faq__item">
+    <div class="faq__question">
+      <span class="faq__question-text">How long does bespoke or custom work take?</span>
+      <span class="faq__toggle">+</span>
+    </div>
+    <div class="faq__answer">Custom pieces: 5–7 business days. Heritage replicas: 4–8 weeks. Engagement ring design: 3 rounds of sketches, then 4–6 weeks after your final approval. All timelines are confirmed before work begins.</div>
+  </div>
+
+  <div class="faq__item">
+    <div class="faq__question">
+      <span class="faq__question-text">How do I care for my jewelry?</span>
+      <span class="faq__toggle">+</span>
+    </div>
+    <div class="faq__answer">Put jewelry on last when dressing, remove first when undressing. Avoid perfume, moisturizer, and water. Store in the provided pouch or a separate compartment. Jade is the most durable — clean with warm water and a soft brush. Pearls should be wiped after wearing.</div>
+  </div>
+
+  <div class="faq__item">
+    <div class="faq__question">
+      <span class="faq__question-text">Are your pieces certified?</span>
+      <span class="faq__toggle">+</span>
+    </div>
+    <div class="faq__answer">Yes. All jade pieces include a GIA-certified appraisal. Pearls are graded by recognized laboratories. Enamel and metal pieces carry IGI certification. Each piece passes our internal 12-point quality inspection before shipping.</div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="section-divider"><hr></div>
+
+<!-- Contact form -->
 <section class="contact-section">
-  <!-- Form -->
-  <div>
-    <h2 class="contact-form__title">Send us a message</h2>
-    <p class="contact-form__sub">We typically respond within 24 hours on business days.</p>
+  <h2 class="contact-section__title">Send us a message</h2>
+  <p class="contact-section__sub">We respond within 24 hours on business days.</p>
 
-    <form id="contactForm">
-      <div class="form-group">
-        <label class="form-label" for="name">Name</label>
-        <input class="form-input" id="name" type="text" placeholder="Your name" required>
-        <span class="form-error" id="err-name"></span>
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="email">Email</label>
-        <input class="form-input" id="email" type="email" placeholder="you@example.com" required>
-        <span class="form-error" id="err-email"></span>
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="subject">Subject</label>
-        <input class="form-input" id="subject" type="text" placeholder="e.g. Bespoke commission inquiry">
-        <span class="form-error" id="err-subject"></span>
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="message">Message</label>
-        <textarea class="form-textarea" id="message" placeholder="Tell us how we can help..." required></textarea>
-        <span class="form-error" id="err-message"></span>
-      </div>
-      <button class="form-submit" type="submit">Send Message ✦</button>
-    </form>
-
-    <div class="form-success" id="formSuccess">
-      <div class="form-success__icon">✦</div>
-      <h3 class="form-success__title">Message sent</h3>
-      <p class="form-success__text">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+  <form id="contactForm">
+    <div class="form-group">
+      <label class="form-label" for="name">Name</label>
+      <input class="form-input" id="name" type="text" placeholder="Your name" required>
+      <span class="form-error" id="err-name"></span>
     </div>
-  </div>
-
-  <!-- Info -->
-  <div class="contact-info">
-    <h2 class="contact-info__title">Other ways to reach us</h2>
-
-    <div class="contact-info__item">
-      <span class="contact-info__icon">✉</span>
-      <div>
-        <p class="contact-info__label">Email</p>
-        <p class="contact-info__value"><a href="mailto:hello@auroraoriens.com">hello@auroraoriens.com</a></p>
-      </div>
+    <div class="form-group">
+      <label class="form-label" for="email">Email</label>
+      <input class="form-input" id="email" type="email" placeholder="you@example.com" required>
+      <span class="form-error" id="err-email"></span>
     </div>
-
-    <div class="contact-info__item">
-      <span class="contact-info__icon">◈</span>
-      <div>
-        <p class="contact-info__label">Response time</p>
-        <p class="contact-info__value">Monday–Friday, 9am–6pm CST (Beijing time). We reply within 24 hours.</p>
-      </div>
+    <div class="form-group">
+      <label class="form-label" for="subject">Subject <span style="font-size:0.65rem;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <input class="form-input" id="subject" type="text" placeholder="e.g. Bespoke commission">
     </div>
-
-    <div class="contact-info__item">
-      <span class="contact-info__icon">✦</span>
-      <div>
-        <p class="contact-info__label">Bespoke orders</p>
-        <p class="contact-info__value">For custom commissions, heritage replicas, or engagement ring design, email us directly with your concept. We respond within 2 business days.</p>
-      </div>
+    <div class="form-group">
+      <label class="form-label" for="message">Message</label>
+      <textarea class="form-textarea" id="message" placeholder="Tell us how we can help..." required></textarea>
+      <span class="form-error" id="err-message"></span>
     </div>
+    <button class="form-submit" type="submit">Send Message ✦</button>
+  </form>
 
-    <div class="contact-divider"></div>
-
-    <div class="contact-info__item">
-      <span class="contact-info__icon">◈</span>
-      <div>
-        <p class="contact-info__label">Press & partnerships</p>
-        <p class="contact-info__value">For collaborations, press inquiries, or wholesale, please email <a href="mailto:hello@auroraoriens.com">hello@auroraoriens.com</a> with the subject line "Press Inquiry."</p>
-      </div>
-    </div>
-
-    <div class="social-links">
-      <a href="#" class="social-link" title="Instagram">IG</a>
-      <a href="#" class="social-link" title="TikTok">TT</a>
-      <a href="#" class="social-link" title="Pinterest">PI</a>
-    </div>
+  <div class="form-success" id="formSuccess">
+    <div class="form-success__icon">✦</div>
+    <h3 class="form-success__title">Message sent</h3>
+    <p class="form-success__text">Thank you for reaching out. We'll get back to you within 24 hours.</p>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq">
-  <div class="faq__inner">
-    <div class="faq__header">
-      <p class="section-label">FAQ</p>
-      <h2>Common Questions</h2>
-    </div>
-
-    <div class="faq__item">
-      <div class="faq__question">
-        What materials do you use?
-        <span class="faq__toggle">+</span>
-      </div>
-      <div class="faq__answer">We use 18K gold-fill, 14K gold-fill, genuine freshwater pearls (AAA grade), nephrite jade, sterling silver, and cubic zirconia set in 24K gold-plated brass. All gemstones are GIA or IGI certified. Every material is nickel-free and hypoallergenic.</div>
-    </div>
-
-    <div class="faq__item">
-      <div class="faq__question">
-        Do you offer international shipping?
-        <span class="faq__toggle">+</span>
-      </div>
-      <div class="faq__answer">Yes — we ship worldwide via DHL Express with full insurance. All orders over $35 qualify for free shipping. Typical delivery is 7–12 business days. Express options are available at checkout.</div>
-    </div>
-
-    <div class="faq__item">
-      <div class="faq__question">
-        What is your return policy?
-        <span class="faq__toggle">+</span>
-      </div>
-      <div class="faq__answer">We offer a 30-day hassle-free return policy. Items must be unworn and in original packaging. Bespoke and personalized items are final sale. To initiate a return, email us at hello@auroraoriens.com with your order number.</div>
-    </div>
-
-    <div class="faq__item">
-      <div class="faq__question">
-        How do I find my ring size?
-        <span class="faq__toggle">+</span>
-      </div>
-      <div class="faq__answer">Our adjustable rings fit US sizes 5–9. For a precise measurement, we recommend using a ring sizing tool or visiting a local jeweler. If you already know your size in millimeters or another country standard, refer to our size guide or contact us — we're happy to help.</div>
-    </div>
-
-    <div class="faq__item">
-      <div class="faq__question">
-        Can I customize a piece from your collection?
-        <span class="faq__toggle">+</span>
-      </div>
-      <div class="faq__answer">Yes. Our Custom Initials Pendant starts at $150 and includes your choice of initials or word, gemstone center, and chain length. For more involved customizations or heritage replicas, contact us with your concept — we typically respond within 2 business days.</div>
-    </div>
-
-    <div class="faq__item">
-      <div class="faq__question">
-        How long does bespoke or custom work take?
-        <span class="faq__toggle">+</span>
-      </div>
-      <div class="faq__answer">Custom pieces: 5–7 business days. Heritage replicas: 4–8 weeks depending on complexity. Engagement ring design: 3 rounds of sketches, then 4–6 weeks after your final approval. All timelines are discussed upfront before work begins.</div>
-    </div>
-
-    <div class="faq__item">
-      <div class="faq__question">
-        How do I care for my jewelry?
-        <span class="faq__toggle">+</span>
-      </div>
-      <div class="faq__answer">General rule: put jewelry on last when dressing, remove first when undressing. Avoid perfume, moisturizer, and water. Store in the provided pouch or a separate compartment. Jade is the most durable — clean with warm water and a soft brush. Pearls should be wiped after wearing. Gold-fill can be polished with a jewelry cloth.</div>
-    </div>
-
-    <div class="faq__item">
-      <div class="faq__question">
-        Are your pieces certified?
-        <span class="faq__toggle">+</span>
-      </div>
-      <div class="faq__answer">Yes. All jade pieces include a GIA-certified appraisal. Pearls are graded by the Pearl Science Laboratory of China. Enamel and metal pieces carry an IGI certification. Each piece also passes our internal 12-point quality inspection before shipping.</div>
-    </div>
+<!-- Contact info -->
+<section class="contact-info">
+  <div class="contact-info__inner">
+    <p class="contact-info__label">Email</p>
+    <p class="contact-info__value"><a href="mailto:hello@auroraoriens.com">hello@auroraoriens.com</a></p>
+    <p class="contact-info__note">Monday–Friday, 9am–6pm CST. For bespoke commissions, engagement ring design, or heritage replicas, email us directly — we respond within 2 business days.</p>
   </div>
 </section>
 
-<!-- Footer -->
 <footer class="footer">
   <div class="footer__inner">
     <span class="footer__brand">Aurora Oriens</span>
@@ -509,39 +449,30 @@
 </footer>
 
 <script>
+document.querySelectorAll('.faq__item').forEach(item => {
+  item.addEventListener('click', () => { item.classList.toggle('open'); });
+});
+
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  // Simple validation
-  const fields = ['name', 'email', 'message'];
   let valid = true;
-  fields.forEach(f => {
+  ['name','email','message'].forEach(f => {
     const el = document.getElementById(f);
     const err = document.getElementById('err-' + f);
     el.classList.remove('error');
     err.textContent = '';
-    if (!el.value.trim()) {
-      el.classList.add('error');
-      err.textContent = 'This field is required';
-      valid = false;
-    }
+    if (!el.value.trim()) { el.classList.add('error'); err.textContent = 'Required'; valid = false; }
   });
   const emailEl = document.getElementById('email');
   if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
     emailEl.classList.add('error');
-    document.getElementById('err-email').textContent = 'Please enter a valid email';
+    document.getElementById('err-email').textContent = 'Invalid email';
     valid = false;
   }
   if (valid) {
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('formSuccess').classList.add('show');
   }
-});
-
-// FAQ accordion
-document.querySelectorAll('.faq__item').forEach(item => {
-  item.addEventListener('click', () => {
-    item.classList.toggle('open');
-  });
 });
 </script>
 
