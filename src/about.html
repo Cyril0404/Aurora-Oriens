@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story — Aurora Oriens</title>
+  <meta name="description" content="Aurora Oriens was born from a simple belief: the world's most intricate craftsmanship shouldn't live only in museums. Meet the artisans and learn our story.">
+  <link rel="canonical" href="https://www.auroraoriens.com/about.html">
+  <meta property="og:title" content="Our Story — Aurora Oriens">
+  <meta property="og:description" content="Where heritage meets everyday luxury. Meet the artisans behind Aurora Oriens and learn about centuries-old Chinese craftsmanship reimagined for today.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1618403088890-3d9ff6f4e0b1?w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-ivory: #FFFFF0;
+      --color-ivory-warm: #FAF8F5;
+      --color-ink: #1A1A1A;
+      --color-ink-light: #4A4A4A;
+      --color-gold: #C9A84C;
+      --color-gold-light: #E8D5A3;
+      --color-red-subtle: #B85C5A;
+      --color-gray-light: #F5F3EF;
+      --color-gray: #E0DDD8;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --transition-fast: 0.2s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-ivory);
+      color: var(--color-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,240,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+    .nav__links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-light);
+      transition: color var(--transition-fast);
+    }
+    .nav__links a:hover { color: var(--color-gold); }
+    .nav__links a.active { color: var(--color-ink); }
+
+    /* Hero */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 85vh;
+      align-items: center;
+    }
+    .about-hero__content {
+      padding: 5rem 5rem 5rem 7rem;
+    }
+    .about-hero__eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+    .about-hero__title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: 1.15;
+      margin-bottom: 2rem;
+    }
+    .about-hero__text {
+      font-size: 0.95rem;
+      color: var(--color-ink-light);
+      max-width: 44ch;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .about-hero__image {
+      height: 85vh;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-hero__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Story section */
+    .story {
+      padding: 6rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .story__content { }
+    .story__label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1rem;
+    }
+    .story__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    .story__text {
+      font-size: 0.9rem;
+      color: var(--color-ink-light);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .story__image {
+      position: relative;
+    }
+    .story__image img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+
+    /* Quote */
+    .quote {
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .quote__inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .quote__text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .quote__attr {
+      font-size: 0.78rem;
+      color: rgba(255,255,240,0.5);
+      letter-spacing: 0.1em;
+    }
+
+    /* Crafts */
+    .crafts {
+      padding: 6rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .crafts__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .crafts__header .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.75rem;
+    }
+    .crafts__header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 0.75rem;
+    }
+    .crafts__header p {
+      font-size: 0.9rem;
+      color: var(--color-ink-light);
+      max-width: 40ch;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .crafts__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+    .craft-item__image {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      transition: transform 0.5s ease;
+    }
+    .craft-item:hover .craft-item__image { transform: scale(1.03); }
+    .craft-item__name {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+    .craft-item__name-en {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--color-gold);
+      margin-bottom: 0.75rem;
+    }
+    .craft-item__tagline {
+      font-size: 0.7rem;
+      font-style: italic;
+      color: var(--color-ink-light);
+      margin-bottom: 1rem;
+    }
+    .craft-item__text {
+      font-size: 0.82rem;
+      color: var(--color-ink-light);
+      line-height: 1.75;
+    }
+
+    /* Pillars */
+    .pillars {
+      background: var(--color-ivory-warm);
+      padding: 6rem 2rem;
+    }
+    .pillars__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+    }
+    .pillar {
+      text-align: center;
+      padding: 2rem;
+    }
+    .pillar__icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .pillar__title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+    }
+    .pillar__text {
+      font-size: 0.85rem;
+      color: var(--color-ink-light);
+      line-height: 1.7;
+    }
+
+    /* Newsletter */
+    .newsletter {
+      background: var(--color-ink);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    .newsletter__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      color: var(--color-ivory);
+      margin-bottom: 0.75rem;
+    }
+    .newsletter__sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,240,0.55);
+      margin-bottom: 2rem;
+    }
+    .newsletter__form {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,240,0.3);
+    }
+    .newsletter__input {
+      flex: 1;
+      padding: 0.9rem 1.2rem;
+      background: transparent;
+      border: none;
+      color: var(--color-ivory);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .newsletter__input::placeholder { color: rgba(255,255,240,0.35); }
+    .newsletter__input:focus { outline: none; }
+    .newsletter__btn {
+      padding: 0.9rem 1.8rem;
+      background: var(--color-gold);
+      color: var(--color-ink);
+      border: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: background var(--transition-fast);
+    }
+    .newsletter__btn:hover { background: var(--color-gold-light); }
+
+    /* Footer */
+    .footer {
+      background: var(--color-ivory-warm);
+      border-top: 1px solid var(--color-gray);
+      padding: 3rem 2rem;
+    }
+    .footer__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer__brand { font-family: var(--font-serif); font-size: 1.1rem; }
+    .footer__copy { font-size: 0.72rem; color: var(--color-ink-light); }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .about-hero { grid-template-columns: 1fr; }
+      .about-hero__image { height: 55vw; min-height: 280px; order: 2; }
+      .about-hero__content { padding: 3rem 2rem; }
+      .story { grid-template-columns: 1fr; gap: 3rem; }
+      .crafts__grid { grid-template-columns: 1fr; }
+      .pillars__inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer__inner { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="主页设计.html" class="nav__logo">Aurora Oriens</a>
+    <ul class="nav__links">
+      <li><a href="主页设计.html">Home</a></li>
+      <li><a href="products.html">Collections</a></li>
+      <li><a href="about.html" class="active">Our Story</a></li>
+      <li><a href="#">Bespoke</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="about-hero">
+  <div class="about-hero__content">
+    <p class="about-hero__eyebrow">Our Story</p>
+    <h1 class="about-hero__title">Where Heritage Meets Everyday Luxury</h1>
+    <p class="about-hero__text">Aurora Oriens was born from a simple belief: the world's most intricate craftsmanship shouldn't live only in museums.</p>
+    <p class="about-hero__text">We partner directly with artisans across China — from the jade carvers of Nanyang to the cloisonné masters of Beijing — to bring heritage techniques into pieces you can actually wear. Not behind glass. Not saved for special occasions. But woven into your everyday.</p>
+  </div>
+  <div class="about-hero__image">
+    <img src="https://images.unsplash.com/photo-1618403088890-3d9ff6f4e0b1?w=900&q=80" alt="Artisan gold filigree craftsmanship">
+  </div>
+</section>
+
+<!-- Story -->
+<section class="story">
+  <div class="story__content">
+    <p class="story__label">The Story Behind the Sparkle</p>
+    <h2 class="story__title">Every piece begins with a story</h2>
+    <p class="story__text">The lotus that has symbolized purity in Chinese culture for a thousand years. The dragon motifs worn by emperors who believed in the power of protection. The filigree patterns passed down through families of goldsmiths whose youngest apprentices are now in their seventies.</p>
+    <p class="story__text">We don't mass-produce these designs. We adapt them — preserving the technique, updating the silhouette, and making them accessible to the modern woman who moves through the world with intention.</p>
+    <p class="story__text" style="font-size:0.82rem; font-style:italic; color:var(--color-gold); margin-top:1.5rem;">The most personal piece of jewelry is one that says exactly what you want it to say.</p>
+  </div>
+  <div class="story__image">
+    <img src="https://images.unsplash.com/photo-1603974372039-0a2dd4f93aec?w=800&q=80" alt="Jade carving artisan at work">
+  </div>
+</section>
+
+<!-- Quote -->
+<section class="quote">
+  <div class="quote__inner">
+    <p class="quote__text">"The world's most intricate craftsmanship shouldn't live only in museums."</p>
+    <p class="quote__attr">— The Aurora Oriens Founding Principle</p>
+  </div>
+</section>
+
+<!-- Why section -->
+<section class="story" style="background:var(--color-ivory-warm); padding:6rem 2rem;">
+  <div class="story__image">
+    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&q=80" alt="Crafted jewelry detail">
+  </div>
+  <div class="story__content">
+    <p class="story__label">Why $50 Instead of $500?</p>
+    <h2 class="story__title">Honest pricing, not a luxury house</h2>
+    <p class="story__text">Because we're building a brand, not a luxury house. We keep our marketing lean, our packaging thoughtful, and our margins honest.</p>
+    <p class="story__text">You're not paying for a flagship store on Fifth Avenue. You're paying for the craft itself — the hours of skilled hands, the ethically sourced materials, and the story that comes with it.</p>
+    <p class="story__text" style="margin-top:1rem;">Every piece is crafted to be noticed, but never ostentatious. We use 18K gold-fill, genuine freshwater pearls, and natural gemstones certified by GIA or IGI. Each item passes our 12-point quality inspection before it ships to you.</p>
+  </div>
+</section>
+
+<!-- Crafts -->
+<section class="crafts">
+  <div class="crafts__header">
+    <p class="section-label">The Heritage</p>
+    <h2>Three Centuries of Craftsmanship</h2>
+    <p>Each technique has been passed down through generations of Chinese artisans — and brought to life in our collection.</p>
+  </div>
+
+  <div class="crafts__grid">
+    <div class="craft-item">
+      <img class="craft-item__image" src="https://images.unsplash.com/photo-1618403088890-3d9ff6f4e0b1?w=600&q=80" alt="Gold filigree artisan work">
+      <h3 class="craft-item__name">Gold Filigree</h3>
+      <p class="craft-item__name-en">金银错 · 700 years of wirework</p>
+      <p class="craft-item__tagline">Thinner than a human hair</p>
+      <p class="craft-item__text">Our gold filigree pieces begin with gold wire drawn down to 0.08mm. Artisans twist, curl, and solder each filament by hand, following patterns that date back to the Ming Dynasty. A single pair of earrings takes four hours to complete. The result is jewelry that looks like lace made from sunlight.</p>
+    </div>
+
+    <div class="craft-item">
+      <img class="craft-item__image" src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80" alt="Cloisonne enamel craftsmanship">
+      <h3 class="craft-item__name">Cloisonné Enamel</h3>
+      <p class="craft-item__name-en">烧蓝珐琅 · The art of painting with fire</p>
+      <p class="craft-item__tagline">Fired at over 800°C</p>
+      <p class="craft-item__text">Cloisonné begins with a copper base. Fine metal wires are soldered to form the design outlines — the "cloisons" that give the technique its name. Colored glass powder is applied within each compartment and fired. The process is repeated up to twelve times. We use traditional Chinese color palettes: celadon greens, cinnabar reds, and deep blues of Ming porcelain.</p>
+    </div>
+
+    <div class="craft-item">
+      <img class="craft-item__image" src="https://images.unsplash.com/photo-1603974372039-0a2dd4f93aec?w=600&q=80" alt="Jade micro-carving artisan">
+      <h3 class="craft-item__name">Jade Micro-Carving</h3>
+      <p class="craft-item__name-en">玉石微雕 · From the jade capital of China</p>
+      <p class="craft-item__tagline">Over 2,000 years of tradition</p>
+      <p class="craft-item__text">Nanyang, in Henan Province, has been the center of Chinese jade carving for over 2,000 years. Our jade pieces are sourced from verified deposits and hand-carved by artisans who trained for a minimum of eight years. The jade we use is nephrite — durable, warm to the touch, and believed in Chinese tradition to offer protection to its wearer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Pillars -->
+<section class="pillars">
+  <div class="pillars__inner">
+    <div class="pillar">
+      <span class="pillar__icon">✦</span>
+      <h3 class="pillar__title">Artisan Crafted</h3>
+      <p class="pillar__text">Each piece is hand-finished by skilled Chinese artisans using techniques passed down through generations.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar__icon">◈</span>
+      <h3 class="pillar__title">Certified Quality</h3>
+      <p class="pillar__text">Ethically sourced gemstones with GIA/IGI certification. Every piece passes our 12-point quality inspection before it ships.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar__icon">◇</span>
+      <h3 class="pillar__title">Global Delivery</h3>
+      <p class="pillar__text">Insured worldwide shipping with DHL Express. 30-day hassle-free returns for all orders.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <h2 class="newsletter__title">Join the Inner Circle</h2>
+  <p class="newsletter__sub">Early access to new collections · Private sale invitations · Artisan stories</p>
+  <form class="newsletter__form" onsubmit="event.preventDefault(); this.innerHTML='<p style=\'color:var(--color-gold);font-size:0.85rem;padding:1rem;text-align:center;\'>✦ Thank you — you\'re on the list.</p>'">
+    <input class="newsletter__input" type="email" placeholder="Your email address" required>
+    <button class="newsletter__btn" type="submit">Subscribe</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__brand">Aurora Oriens</span>
+    <span class="footer__copy">© 2026 Aurora Oriens. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>

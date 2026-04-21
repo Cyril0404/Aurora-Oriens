@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aurora Oriens — Fine Jewelry from China</title>
   <meta name="description" content="Handcrafted Eastern jewelry — artisan-made jade, pearls & enamel pieces. Each piece tells a story of heritage, reimagined for today. Free worldwide shipping.">
-  <link rel="canonical" href="https://www.orientaltreasure.com/">
+  <link rel="canonical" href="https://www.auroraoriens.com/">
   <meta property="og:title" content="Aurora Oriens — Fine Jewelry from China">
   <meta property="og:description" content="Handcrafted Eastern jewelry — artisan-made jade, pearls & enamel pieces. Each piece tells a story of heritage, reimagined for today.">
   <meta property="og:type" content="website">
@@ -61,6 +61,7 @@
       color: var(--color-ink);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     img {
@@ -205,6 +206,10 @@
       border: none;
       cursor: pointer;
       transition: all var(--transition-fast);
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .btn--primary:hover {
@@ -221,6 +226,10 @@
       border: 1px solid var(--color-gray);
       cursor: pointer;
       transition: all var(--transition-fast);
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .btn--ghost:hover {
@@ -814,6 +823,7 @@
       font-family: var(--font-sans);
       transition: all 0.2s;
       width: 100%;
+      min-height: 44px;
     }
     .add-to-cart-btn:hover { background: var(--color-gold); }
     .add-to-cart-btn.added {
@@ -968,13 +978,15 @@
     .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
     .form-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-light); }
     .form-input {
-      padding: 0.75rem 1rem;
+      padding: 0.85rem 1rem;
       border: 1px solid var(--color-gray);
       background: var(--color-ivory);
       font-family: var(--font-sans);
-      font-size: 0.88rem;
+      font-size: 16px;
       color: var(--color-ink);
       transition: border-color 0.2s;
+      -webkit-appearance: none;
+      border-radius: 0;
     }
     .form-input:focus { outline: none; border-color: var(--color-gold); }
     .form-input.error { border-color: var(--color-red-subtle); }
@@ -1046,6 +1058,10 @@
       font-family: var(--font-sans);
       border: none;
       transition: all 0.2s;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .checkout__btn--primary { background: var(--color-ink); color: var(--color-ivory); }
     .checkout__btn--primary:hover { background: var(--color-gold); }
@@ -1117,6 +1133,8 @@
       .hero { grid-template-columns: 1fr; }
       .hero__image { height: 60vw; min-height: 320px; }
       .hero__content { padding: 3rem 2rem; order: 2; }
+      .hero__actions { flex-direction: column; align-items: stretch; }
+      .btn--primary, .btn--ghost { width: 100%; text-align: center; }
       .pillars__inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .collections__grid { grid-template-columns: 1fr; }
       .featured__inner { grid-template-columns: 1fr; gap: 2rem; }

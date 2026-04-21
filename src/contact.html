@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Aurora Oriens</title>
+  <meta name="description" content="Get in touch with Aurora Oriens. Questions about sizing, care, bespoke orders, or shipping? We're here to help.">
+  <link rel="canonical" href="https://www.auroraoriens.com/contact.html">
+  <meta property="og:title" content="Contact Us — Aurora Oriens">
+  <meta property="og:description" content="Questions about our jewelry, orders, or bespoke commissions? Reach out — we'd love to hear from you.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-ivory: #FFFFF0;
+      --color-ivory-warm: #FAF8F5;
+      --color-ink: #1A1A1A;
+      --color-ink-light: #4A4A4A;
+      --color-gold: #C9A84C;
+      --color-gold-light: #E8D5A3;
+      --color-red-subtle: #B85C5A;
+      --color-gray-light: #F5F3EF;
+      --color-gray: #E0DDD8;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --transition-fast: 0.2s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-ivory);
+      color: var(--color-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,240,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+    .nav__links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-light);
+      transition: color var(--transition-fast);
+    }
+    .nav__links a:hover { color: var(--color-gold); }
+    .nav__links a.active { color: var(--color-ink); }
+
+    /* Page header */
+    .page-header {
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .page-header .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.75rem;
+    }
+    .page-header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .page-header p {
+      font-size: 0.9rem;
+      color: rgba(255,255,240,0.6);
+      max-width: 45ch;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Contact layout */
+    .contact-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    /* Form */
+    .contact-form__title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .contact-form__sub {
+      font-size: 0.85rem;
+      color: var(--color-ink-light);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .form-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-ink-light);
+    }
+    .form-input, .form-textarea {
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--color-gray);
+      background: var(--color-ivory);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      color: var(--color-ink);
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-gold);
+    }
+    .form-input.error, .form-textarea.error {
+      border-color: var(--color-red-subtle);
+    }
+    .form-error { font-size: 0.68rem; color: var(--color-red-subtle); min-height: 0.9rem; }
+    .form-submit {
+      padding: 0.9rem 2rem;
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      border: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: background 0.2s;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .form-submit:hover { background: var(--color-gold); }
+    .form-success {
+      display: none;
+      padding: 2rem;
+      background: var(--color-gray-light);
+      text-align: center;
+    }
+    .form-success.show { display: block; }
+    .form-success__icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .form-success__title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .form-success__text { font-size: 0.85rem; color: var(--color-ink-light); }
+
+    /* Info */
+    .contact-info { }
+    .contact-info__title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+    }
+    .contact-info__item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .contact-info__icon { font-size: 1.2rem; margin-top: 0.1rem; }
+    .contact-info__label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.2rem;
+    }
+    .contact-info__value { font-size: 0.88rem; color: var(--color-ink-light); }
+    .contact-info__value a { color: var(--color-ink); border-bottom: 1px solid var(--color-gray); transition: color 0.2s; }
+    .contact-info__value a:hover { color: var(--color-gold); border-color: var(--color-gold); }
+
+    /* Divider */
+    .contact-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--color-gray);
+      margin: 1.5rem 0;
+    }
+
+    /* Social */
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--color-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--color-ink-light);
+      transition: all 0.2s;
+    }
+    .social-link:hover { border-color: var(--color-gold); color: var(--color-gold); }
+
+    /* FAQ */
+    .faq {
+      background: var(--color-ivory-warm);
+      padding: 5rem 2rem;
+    }
+    .faq__inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .faq__header .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.75rem;
+    }
+    .faq__header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+    }
+    .faq__item {
+      border-bottom: 1px solid var(--color-gray);
+      padding: 1.25rem 0;
+      cursor: pointer;
+    }
+    .faq__item:first-of-type { border-top: 1px solid var(--color-gray); }
+    .faq__question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .faq__toggle { font-size: 1.2rem; color: var(--color-gold); transition: transform 0.2s; }
+    .faq__item.open .faq__toggle { transform: rotate(45deg); }
+    .faq__answer {
+      font-size: 0.82rem;
+      color: var(--color-ink-light);
+      line-height: 1.7;
+      display: none;
+    }
+    .faq__item.open .faq__answer { display: block; }
+
+    /* Footer */
+    .footer {
+      background: var(--color-ivory-warm);
+      border-top: 1px solid var(--color-gray);
+      padding: 3rem 2rem;
+    }
+    .footer__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer__brand { font-family: var(--font-serif); font-size: 1.1rem; }
+    .footer__copy { font-size: 0.72rem; color: var(--color-ink-light); }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .contact-section { grid-template-columns: 1fr; gap: 3rem; }
+      .footer__inner { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="主页设计.html" class="nav__logo">Aurora Oriens</a>
+    <ul class="nav__links">
+      <li><a href="主页设计.html">Home</a></li>
+      <li><a href="products.html">Collections</a></li>
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="#">Bespoke</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Header -->
+<div class="page-header">
+  <p class="section-label">Get in Touch</p>
+  <h1> We'd Love to Hear From You</h1>
+  <p>Whether you have a question about a piece, need help with your order, or are interested in a bespoke commission — we're here.</p>
+</div>
+
+<!-- Contact -->
+<section class="contact-section">
+  <!-- Form -->
+  <div>
+    <h2 class="contact-form__title">Send us a message</h2>
+    <p class="contact-form__sub">We typically respond within 24 hours on business days.</p>
+
+    <form id="contactForm">
+      <div class="form-group">
+        <label class="form-label" for="name">Name</label>
+        <input class="form-input" id="name" type="text" placeholder="Your name" required>
+        <span class="form-error" id="err-name"></span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-input" id="email" type="email" placeholder="you@example.com" required>
+        <span class="form-error" id="err-email"></span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="subject">Subject</label>
+        <input class="form-input" id="subject" type="text" placeholder="e.g. Bespoke commission inquiry">
+        <span class="form-error" id="err-subject"></span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="message">Message</label>
+        <textarea class="form-textarea" id="message" placeholder="Tell us how we can help..." required></textarea>
+        <span class="form-error" id="err-message"></span>
+      </div>
+      <button class="form-submit" type="submit">Send Message ✦</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <div class="form-success__icon">✦</div>
+      <h3 class="form-success__title">Message sent</h3>
+      <p class="form-success__text">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+    </div>
+  </div>
+
+  <!-- Info -->
+  <div class="contact-info">
+    <h2 class="contact-info__title">Other ways to reach us</h2>
+
+    <div class="contact-info__item">
+      <span class="contact-info__icon">✉</span>
+      <div>
+        <p class="contact-info__label">Email</p>
+        <p class="contact-info__value"><a href="mailto:hello@auroraoriens.com">hello@auroraoriens.com</a></p>
+      </div>
+    </div>
+
+    <div class="contact-info__item">
+      <span class="contact-info__icon">◈</span>
+      <div>
+        <p class="contact-info__label">Response time</p>
+        <p class="contact-info__value">Monday–Friday, 9am–6pm CST (Beijing time). We reply within 24 hours.</p>
+      </div>
+    </div>
+
+    <div class="contact-info__item">
+      <span class="contact-info__icon">✦</span>
+      <div>
+        <p class="contact-info__label">Bespoke orders</p>
+        <p class="contact-info__value">For custom commissions, heritage replicas, or engagement ring design, email us directly with your concept. We respond within 2 business days.</p>
+      </div>
+    </div>
+
+    <div class="contact-divider"></div>
+
+    <div class="contact-info__item">
+      <span class="contact-info__icon">◈</span>
+      <div>
+        <p class="contact-info__label">Press & partnerships</p>
+        <p class="contact-info__value">For collaborations, press inquiries, or wholesale, please email <a href="mailto:hello@auroraoriens.com">hello@auroraoriens.com</a> with the subject line "Press Inquiry."</p>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="#" class="social-link" title="Instagram">IG</a>
+      <a href="#" class="social-link" title="TikTok">TT</a>
+      <a href="#" class="social-link" title="Pinterest">PI</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq__inner">
+    <div class="faq__header">
+      <p class="section-label">FAQ</p>
+      <h2>Common Questions</h2>
+    </div>
+
+    <div class="faq__item">
+      <div class="faq__question">
+        What materials do you use?
+        <span class="faq__toggle">+</span>
+      </div>
+      <div class="faq__answer">We use 18K gold-fill, 14K gold-fill, genuine freshwater pearls (AAA grade), nephrite jade, sterling silver, and cubic zirconia set in 24K gold-plated brass. All gemstones are GIA or IGI certified. Every material is nickel-free and hypoallergenic.</div>
+    </div>
+
+    <div class="faq__item">
+      <div class="faq__question">
+        Do you offer international shipping?
+        <span class="faq__toggle">+</span>
+      </div>
+      <div class="faq__answer">Yes — we ship worldwide via DHL Express with full insurance. All orders over $35 qualify for free shipping. Typical delivery is 7–12 business days. Express options are available at checkout.</div>
+    </div>
+
+    <div class="faq__item">
+      <div class="faq__question">
+        What is your return policy?
+        <span class="faq__toggle">+</span>
+      </div>
+      <div class="faq__answer">We offer a 30-day hassle-free return policy. Items must be unworn and in original packaging. Bespoke and personalized items are final sale. To initiate a return, email us at hello@auroraoriens.com with your order number.</div>
+    </div>
+
+    <div class="faq__item">
+      <div class="faq__question">
+        How do I find my ring size?
+        <span class="faq__toggle">+</span>
+      </div>
+      <div class="faq__answer">Our adjustable rings fit US sizes 5–9. For a precise measurement, we recommend using a ring sizing tool or visiting a local jeweler. If you already know your size in millimeters or another country standard, refer to our size guide or contact us — we're happy to help.</div>
+    </div>
+
+    <div class="faq__item">
+      <div class="faq__question">
+        Can I customize a piece from your collection?
+        <span class="faq__toggle">+</span>
+      </div>
+      <div class="faq__answer">Yes. Our Custom Initials Pendant starts at $150 and includes your choice of initials or word, gemstone center, and chain length. For more involved customizations or heritage replicas, contact us with your concept — we typically respond within 2 business days.</div>
+    </div>
+
+    <div class="faq__item">
+      <div class="faq__question">
+        How long does bespoke or custom work take?
+        <span class="faq__toggle">+</span>
+      </div>
+      <div class="faq__answer">Custom pieces: 5–7 business days. Heritage replicas: 4–8 weeks depending on complexity. Engagement ring design: 3 rounds of sketches, then 4–6 weeks after your final approval. All timelines are discussed upfront before work begins.</div>
+    </div>
+
+    <div class="faq__item">
+      <div class="faq__question">
+        How do I care for my jewelry?
+        <span class="faq__toggle">+</span>
+      </div>
+      <div class="faq__answer">General rule: put jewelry on last when dressing, remove first when undressing. Avoid perfume, moisturizer, and water. Store in the provided pouch or a separate compartment. Jade is the most durable — clean with warm water and a soft brush. Pearls should be wiped after wearing. Gold-fill can be polished with a jewelry cloth.</div>
+    </div>
+
+    <div class="faq__item">
+      <div class="faq__question">
+        Are your pieces certified?
+        <span class="faq__toggle">+</span>
+      </div>
+      <div class="faq__answer">Yes. All jade pieces include a GIA-certified appraisal. Pearls are graded by the Pearl Science Laboratory of China. Enamel and metal pieces carry an IGI certification. Each piece also passes our internal 12-point quality inspection before shipping.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__brand">Aurora Oriens</span>
+    <span class="footer__copy">© 2026 Aurora Oriens. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Simple validation
+  const fields = ['name', 'email', 'message'];
+  let valid = true;
+  fields.forEach(f => {
+    const el = document.getElementById(f);
+    const err = document.getElementById('err-' + f);
+    el.classList.remove('error');
+    err.textContent = '';
+    if (!el.value.trim()) {
+      el.classList.add('error');
+      err.textContent = 'This field is required';
+      valid = false;
+    }
+  });
+  const emailEl = document.getElementById('email');
+  if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
+    emailEl.classList.add('error');
+    document.getElementById('err-email').textContent = 'Please enter a valid email';
+    valid = false;
+  }
+  if (valid) {
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  }
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq__item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>

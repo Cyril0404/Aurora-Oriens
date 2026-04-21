@@ -880,7 +880,7 @@ POV: You just got your first piece of real jade jewelry.
 
 No filter. Natural light. iPhone photo.
 
-This is the $45 Jade Bangle from @orientaltreasure
+This is the $45 Jade Bangle from @auroraoriens
 
 I was skeptical because it's under $50.
 But I looked it up — real nephrite jade, hand-polished, 18K gold-fill clasp.
