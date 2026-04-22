@@ -67,7 +67,10 @@ add_theme_support( 'wc-product-gallery-slider' );
  * Echoes the mini-cart markup into the header cart icon
  */
 function auroraoriens_cart_icon() {
-  $count = WC()->cart->get_cart_contents_count();
+  $count = 0;
+  if ( isset( WC()->cart ) && WC()->cart ) {
+    $count = WC()->cart->get_cart_contents_count();
+  }
   ?>
   <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="nav__cart" aria-label="<?php esc_attr_e( 'Shopping cart', 'auroraoriens' ); ?>">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -86,7 +89,10 @@ function auroraoriens_cart_icon() {
  * Add AJAX cart fragment refresh
  */
 function auroraoriens_cart_fragment( $fragments ) {
-  $count = WC()->cart->get_cart_contents_count();
+  $count = 0;
+  if ( isset( WC()->cart ) && WC()->cart ) {
+    $count = WC()->cart->get_cart_contents_count();
+  }
   $fragments['a.nav__cart'] = sprintf(
     '<a href="%s" class="nav__cart" aria-label="%s">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
