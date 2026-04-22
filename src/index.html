@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story — Aurora Oriens</title>
+  <meta name="description" content="Aurora Oriens was born from a simple belief: the world's most intricate craftsmanship shouldn't live only in museums. Meet the artisans and learn our story.">
+  <link rel="canonical" href="https://www.auroraoriens.com/about.html">
+  <meta property="og:title" content="Our Story — Aurora Oriens">
+  <meta property="og:description" content="Where heritage meets everyday luxury. Meet the artisans behind Aurora Oriens and learn about centuries-old Chinese craftsmanship reimagined for today.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-ivory: #FFFFF0;
+      --color-ivory-warm: #FAF8F5;
+      --color-ink: #1A1A1A;
+      --color-ink-light: #4A4A4A;
+      --color-gold: #C9A84C;
+      --color-gold-light: #E8D5A3;
+      --color-red-subtle: #B85C5A;
+      --color-gray-light: #F5F3EF;
+      --color-gray: #E0DDD8;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --transition-fast: 0.2s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-ivory);
+      color: var(--color-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Nav — sticky */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,240,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+    .nav__links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-light);
+      transition: color var(--transition-fast);
+    }
+    .nav__links a:hover { color: var(--color-gold); }
+    .nav__links a.active { color: var(--color-ink); }
+
+    /* Hero — pure black, centered text */
+    .hero {
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      padding: 10rem 2rem 10rem;
+      text-align: center;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero__eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 2rem;
+    }
+    .hero__title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 2.5rem;
+      max-width: 16ch;
+    }
+    .hero__text {
+      font-size: 1rem;
+      color: rgba(255,255,240,0.6);
+      max-width: 44ch;
+      line-height: 1.8;
+    }
+
+    /* Intro */
+    .intro {
+      background: var(--color-ivory);
+      padding: 7rem 2rem;
+    }
+    .intro__inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .intro__text {
+      font-size: 1.05rem;
+      color: var(--color-ink-light);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+    .intro__divider {
+      width: 2rem;
+      height: 1px;
+      background: var(--color-gold);
+      margin: 2.5rem auto;
+    }
+    .intro__quote {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--color-ink);
+      line-height: 1.5;
+    }
+
+    /* Timeline — vertical, museum style */
+    .timeline {
+      background: var(--color-ivory);
+      padding: 0 2rem 7rem;
+    }
+    .timeline__inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .timeline__section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      text-align: center;
+      margin-bottom: 4rem;
+      padding-top: 6rem;
+    }
+    .timeline__section-label:first-child { padding-top: 0; }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-bottom: 6rem;
+    }
+    .timeline-item:nth-child(even) .timeline-item__image { order: 2; }
+    .timeline-item:nth-child(even) .timeline-item__content { order: 1; }
+
+    .timeline-item__image {
+      position: relative;
+    }
+    .timeline-item__image img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+    }
+    .timeline-item__number {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      font-family: var(--font-serif);
+      font-size: 4rem;
+      font-weight: 400;
+      color: rgba(255,255,240,0.9);
+      line-height: 1;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .timeline-item__content {
+      padding-top: 2rem;
+    }
+    .timeline-item__name {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+    .timeline-item__name-en {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+    .timeline-item__tagline {
+      font-size: 0.78rem;
+      font-style: italic;
+      color: var(--color-ink-light);
+      margin-bottom: 1.25rem;
+    }
+    .timeline-item__text {
+      font-size: 0.88rem;
+      color: var(--color-ink-light);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .timeline-item__stat {
+      display: flex;
+      gap: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-gray);
+    }
+    .timeline-item__stat-num {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--color-gold);
+    }
+    .timeline-item__stat-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-ink-light);
+      margin-top: 0.2rem;
+    }
+
+    /* Pillars */
+    .pillars {
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      padding: 6rem 2rem;
+    }
+    .pillars__inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+    }
+    .pillar { text-align: center; }
+    .pillar__icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .pillar__title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-ivory);
+    }
+    .pillar__text {
+      font-size: 0.82rem;
+      color: rgba(255,255,240,0.55);
+      line-height: 1.7;
+    }
+
+    /* Newsletter */
+    .newsletter {
+      background: var(--color-ivory);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    .newsletter__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      margin-bottom: 0.75rem;
+    }
+    .newsletter__sub {
+      font-size: 0.85rem;
+      color: var(--color-ink-light);
+      margin-bottom: 2rem;
+    }
+    .newsletter__form {
+      display: flex;
+      max-width: 440px;
+      margin: 0 auto;
+      border: 1px solid var(--color-gray);
+    }
+    .newsletter__input {
+      flex: 1;
+      padding: 0.85rem 1.2rem;
+      background: transparent;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: var(--color-ink);
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .newsletter__input:focus { outline: none; }
+    .newsletter__input::placeholder { color: var(--color-gray); }
+    .newsletter__btn {
+      padding: 0.85rem 1.5rem;
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      border: none;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: background 0.2s;
+    }
+    .newsletter__btn:hover { background: var(--color-gold); }
+
+    /* Footer */
+    .footer {
+      background: var(--color-ivory-warm);
+      border-top: 1px solid var(--color-gray);
+      padding: 3rem 2rem;
+    }
+    .footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer__brand { font-family: var(--font-serif); font-size: 1.1rem; }
+    .footer__copy { font-size: 0.72rem; color: var(--color-ink-light); }
+
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .hero { padding: 6rem 2rem; min-height: 60vh; }
+      .timeline-item { grid-template-columns: 1fr; gap: 2rem; }
+      .timeline-item:nth-child(even) .timeline-item__image { order: 0; }
+      .timeline-item:nth-child(even) .timeline-item__content { order: 0; }
+      .pillars__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer__inner { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="主页设计.html" class="nav__logo">Aurora Oriens</a>
+    <ul class="nav__links">
+      <li><a href="主页设计.html">Home</a></li>
+      <li><a href="products.html">Collections</a></li>
+      <li><a href="about.html" class="active">Our Story</a></li>
+      <li><a href="#">Bespoke</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero: Pure black, centered -->
+<section class="hero">
+  <p class="hero__eyebrow">Our Story · Aurora Oriens</p>
+  <h1 class="hero__title">Where Heritage Meets Everyday Luxury</h1>
+  <p class="hero__text">The world's most intricate craftsmanship shouldn't live only in museums. We bring it to you — to wear, to live with, to make part of your everyday.</p>
+</section>
+
+<!-- Intro -->
+<section class="intro">
+  <div class="intro__inner">
+    <p class="intro__text">Aurora Oriens partners directly with artisans across China — from the jade carvers of Nanyang to the cloisonné masters of Beijing — to adapt heritage techniques into pieces you can actually wear.</p>
+    <p class="intro__text">We don't mass-produce. We preserve the technique, update the silhouette, and make it accessible to the modern woman who moves through the world with intention.</p>
+    <div class="intro__divider"></div>
+    <p class="intro__quote">"The most personal piece of jewelry is one that says exactly what you want it to say."</p>
+  </div>
+</section>
+
+<!-- Timeline: Vertical, museum style -->
+<section class="timeline">
+  <div class="timeline__inner">
+
+    <p class="timeline__section-label">The Heritage · 三大工艺</p>
+
+    <!-- 1: Gold Filigree -->
+    <div class="timeline-item">
+      <div class="timeline-item__image">
+        <span class="timeline-item__number">01</span>
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=700&q=80" alt="Gold filigree artisan — intricate wirework detail">
+      </div>
+      <div class="timeline-item__content">
+        <h2 class="timeline-item__name">Gold Filigree</h2>
+        <p class="timeline-item__name-en">金银错 · Tèzhì · 700 years of wirework</p>
+        <p class="timeline-item__tagline">Thinner than a strand of silk</p>
+        <p class="timeline-item__text">Gold wire drawn down to 0.08mm — thinner than a strand of silk. Artisans then twist, curl, and solder each filament by hand, following patterns that date back to the Ming Dynasty. A single pair of earrings takes four hours to complete. The result is jewelry that looks like lace made from sunlight.</p>
+        <p class="timeline-item__text" style="font-size:0.82rem; color:var(--color-gold);">A technique documented since the Tang Dynasty, now reimagined for everyday wear.</p>
+        <div class="timeline-item__stat">
+          <div>
+            <div class="timeline-item__stat-num">4h</div>
+            <div class="timeline-item__stat-label">Per pair of earrings</div>
+          </div>
+          <div>
+            <div class="timeline-item__stat-num">0.08mm</div>
+            <div class="timeline-item__stat-label">Wire thickness</div>
+          </div>
+          <div>
+            <div class="timeline-item__stat-num">700</div>
+            <div class="timeline-item__stat-label">Years of tradition</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2: Cloisonne Enamel -->
+    <div class="timeline-item">
+      <div class="timeline-item__image">
+        <span class="timeline-item__number">02</span>
+        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=700&q=80" alt="Cloisonne enamel craftsmanship — metal and glass detail">
+      </div>
+      <div class="timeline-item__content">
+        <h2 class="timeline-item__name">Cloisonné Enamel</h2>
+        <p class="timeline-item__name-en">烧蓝珐琅 · Fàláng · The art of painting with fire</p>
+        <p class="timeline-item__tagline">Fired at over 800°C, twelve times</p>
+        <p class="timeline-item__text">Cloisonné begins with a copper base. Fine metal wires are soldered to form the design outlines — the "cloisons" that give the technique its name. Colored glass powder is applied within each compartment and fired. The process is repeated up to twelve times until the enamel sits flush with the wire.</p>
+        <p class="timeline-item__text" style="font-size:0.82rem; color:var(--color-gold);">We use traditional Chinese color palettes: celadon greens, cinnabar reds, and the deep blues of Ming porcelain.</p>
+        <div class="timeline-item__stat">
+          <div>
+            <div class="timeline-item__stat-num">12×</div>
+            <div class="timeline-item__stat-label">Firing process</div>
+          </div>
+          <div>
+            <div class="timeline-item__stat-num">800°C</div>
+            <div class="timeline-item__stat-label">Firing temperature</div>
+          </div>
+          <div>
+            <div class="timeline-item__stat-num">3+</div>
+            <div class="timeline-item__stat-label">Days to complete</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3: Jade Micro-Carving -->
+    <div class="timeline-item">
+      <div class="timeline-item__image">
+        <span class="timeline-item__number">03</span>
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=700&q=80" alt="Jade micro-carving — polished nephrite jade pendant">
+      </div>
+      <div class="timeline-item__content">
+        <h2 class="timeline-item__name">Jade Micro-Carving</h2>
+        <p class="timeline-item__name-en">玉石微雕 · Yùdiāo · From the jade capital of China</p>
+        <p class="timeline-item__tagline">Over 2,000 years of tradition</p>
+        <p class="timeline-item__text">Nanyang, in Henan Province, has been the center of Chinese jade carving for over 2,000 years. Our jade pieces are sourced from verified deposits and hand-carved by artisans who trained for a minimum of eight years. The jade we use is nephrite — durable, warm to the touch, and believed in Chinese tradition to offer protection to its wearer.</p>
+        <p class="timeline-item__text" style="font-size:0.82rem; color:var(--color-gold);">In Chinese culture, jade is not just a gemstone — it's a relationship between the wearer and the stone, passed down through generations.</p>
+        <div class="timeline-item__stat">
+          <div>
+            <div class="timeline-item__stat-num">8yr</div>
+            <div class="timeline-item__stat-label">Artisan training</div>
+          </div>
+          <div>
+            <div class="timeline-item__stat-num">2000+</div>
+            <div class="timeline-item__stat-label">Years of history</div>
+          </div>
+          <div>
+            <div class="timeline-item__stat-num">Nanyang</div>
+            <div class="timeline-item__stat-label">Jade capital, Henan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Pillars -->
+<section class="pillars">
+  <div class="pillars__inner">
+    <div class="pillar">
+      <span class="pillar__icon">✦</span>
+      <h3 class="pillar__title">Artisan Crafted</h3>
+      <p class="pillar__text">Each piece is hand-finished by skilled artisans using techniques passed down through generations.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar__icon">◈</span>
+      <h3 class="pillar__title">Certified Quality</h3>
+      <p class="pillar__text">Ethically sourced materials with GIA/IGI certification. Every piece passes our 12-point inspection.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar__icon">◇</span>
+      <h3 class="pillar__title">Global Delivery</h3>
+      <p class="pillar__text">Insured worldwide shipping via DHL Express. Free on orders over $35. 30-day returns.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <h2 class="newsletter__title">Join the Inner Circle</h2>
+  <p class="newsletter__sub">Early access to new collections · Private sale invitations · Artisan stories</p>
+  <form class="newsletter__form" onsubmit="event.preventDefault(); this.innerHTML='<p style=\'color:var(--color-gold);font-size:0.85rem;padding:1rem;text-align:center;\'>✦ You\'re on the list.</p>'">
+    <input class="newsletter__input" type="email" placeholder="Your email address" required>
+    <button class="newsletter__btn" type="submit">Subscribe</button>
+  </form>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__brand">Aurora Oriens</span>
+    <span class="footer__copy">© 2026 Aurora Oriens. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
